@@ -22,11 +22,18 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+# Миграции баз данных
+Создание миграции: rails g migration add_tests_title_null_constraint
+Установка последней миграции по времени: rails db:migrate
+Откат миграции на шаг назад по времени: rails db:rollback
+Конфигурация миграций в папке: /db/migrate/*.rb
 
+# Работа с базой SQLITE
+Пример в /non_project_data/sqlite_example.txt
 
 # Сущности для создания тестирования
-- Темы тестирования
-- Вопросы тестирования (под темы)
-- Пользователи
-- Права доступа для пользователей
-- Результаты
+- Категория
+- Тест
+- Вопрос
+- Ответ
+- Пользователь

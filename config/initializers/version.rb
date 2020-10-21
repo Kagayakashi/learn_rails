@@ -1,3 +1,5 @@
 module LearnRails
-   VERSION = '3.2.2'.freeze
+  class Application < Rails::Application
+    VERSION = '0.1.0'.freeze
+  end
 end
