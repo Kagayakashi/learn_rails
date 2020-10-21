@@ -1,0 +1,54 @@
+sqlite test_guru.db
+
+create table CATEGORIES (
+ID integer not null primary key autoincrement,
+TITLE text not null );
+
+create table TESTS (
+ID integer not null primary key autoincrement,
+CATEGORY integer not null,
+TITLE text not null,
+LEVEL integer not null,
+foreign key (CATEGORY) references CATEGORIES(ID) );
+
+create table QUESTIONS (
+ID integer not null primary key autoincrement,
+TEST integer not null,
+BODY text not null,
+foreign key (TEST) references TESTS(ID) );
+
+insert into CATEGORIES (TITLE) values ('Категория 1');
+insert into CATEGORIES (TITLE) values ('Категория 2');
+insert into CATEGORIES (TITLE) values ('Категория 3');
+
+insert into TESTS (CATEGORY, TITLE, LEVEL) values (1, 'Тест 1', 1);
+insert into TESTS (CATEGORY, TITLE, LEVEL) values (1, 'Тест 2', 2);
+insert into TESTS (CATEGORY, TITLE, LEVEL) values (2, 'Тест 3', 1);
+insert into TESTS (CATEGORY, TITLE, LEVEL) values (2, 'Тест 4', 2);
+insert into TESTS (CATEGORY, TITLE, LEVEL) values (3, 'Тест 5', 3);
+
+insert into QUESTIONS (TEST, BODY) values (1, 'Вопрос 1');
+insert into QUESTIONS (TEST, BODY) values (1, 'Вопрос 2');
+insert into QUESTIONS (TEST, BODY) values (1, 'Вопрос 3');
+insert into QUESTIONS (TEST, BODY) values (2, 'Вопрос 4');
+insert into QUESTIONS (TEST, BODY) values (3, 'Вопрос 5');
+
+select * from CATEGORIES;
+select * from TESTS;
+select * from QUESTIONS;
+
+select * from TESTS where LEVEL = 2 or LEVEL = 3;
+select * from QUESTIONS where TEST = 1;
+
+update TESTS
+SET
+TITLE = 'Тест 11',
+LEVEL = 2
+WHERE
+ID = 1;
+
+select * from TESTS;
+
+delete from QUESTIONS where TEST = 3;
+
+select BODY, TITLE from QUESTIONS inner join TESTS on TESTS.ID = QUESTIONS.TEST;
