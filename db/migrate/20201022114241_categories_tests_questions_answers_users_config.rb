@@ -9,9 +9,9 @@ class CategoriesTestsQuestionsAnswersUsersConfig < ActiveRecord::Migration[6.0]
     change_column_null :users, :password, false
     
     # Default value
-    change_column_default :tests, :level, from: 1, to: 3
-    change_column_default :answers, :correct, from: true, to: false
-    change_column_default :users, :admin, from: true, to: false
+    change_column_default :tests, :level, from: nil, to: 1
+    change_column_default :answers, :correct, from: nil, to: false
+    change_column_default :users, :admin, from: nil, to: false
     
     # References
     add_reference :tests, :categories, foreign_key: true
