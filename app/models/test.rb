@@ -2,7 +2,7 @@ class Test < ApplicationRecord
   
   # Содержит в себе сущности:
   has_many :questions
-  has_one :users
+  has_one :сreator, :class_name => 'User'
   
   # Содержится сам как сущность в:
   belongs_to :category
