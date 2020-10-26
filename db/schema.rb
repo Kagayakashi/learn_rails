@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_22_205251) do
+ActiveRecord::Schema.define(version: 2020_10_26_182713) do
 
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
@@ -38,23 +38,22 @@ ActiveRecord::Schema.define(version: 2020_10_22_205251) do
   create_table "tables", force: :cascade do |t|
   end
 
-  create_table "testings", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "test_id"
-    t.integer "user_id"
-    t.boolean "completed", default: false
-    t.index ["test_id"], name: "index_testings_on_test_id"
-    t.index ["user_id"], name: "index_testings_on_user_id"
-  end
-
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
+    t.integer "creator_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["creator_id"], name: "index_tests_on_creator_id"
+  end
+
+  create_table "tests_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "test_id", null: false
+    t.string "state"
+    t.index ["user_id", "test_id"], name: "index_tests_users_on_user_id_and_test_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,7 +66,6 @@ ActiveRecord::Schema.define(version: 2020_10_22_205251) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
-  add_foreign_key "testings", "tests"
-  add_foreign_key "testings", "users"
   add_foreign_key "tests", "categories"
+  add_foreign_key "tests", "users", column: "creator_id"
 end
