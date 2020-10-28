@@ -1,6 +1,5 @@
 class CategoriesTestsQuestionsAnswersUsersConfig < ActiveRecord::Migration[6.0]
   def change
-    # Not Null
     change_column_null :categories, :title, false
     change_column_null :tests, :title, false
     change_column_null :questions, :body, false
@@ -8,12 +7,10 @@ class CategoriesTestsQuestionsAnswersUsersConfig < ActiveRecord::Migration[6.0]
     change_column_null :users, :username, false
     change_column_null :users, :password, false
     
-    # Default value
     change_column_default :tests, :level, from: nil, to: 1
     change_column_default :answers, :correct, from: nil, to: false
     change_column_default :users, :admin, from: nil, to: false
     
-    # References
     add_reference :tests, :category, foreign_key: true
     add_reference :questions, :test, foreign_key: true
     add_reference :answers, :question, foreign_key: true

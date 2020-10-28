@@ -1,5 +1,3 @@
 class Category < ApplicationRecord
-
-  # Содержит в себе сущности:
-  has_many :tests
+  has_many :tests, dependent: :destroy
 end
