@@ -1,6 +1,6 @@
 class Test < ApplicationRecord
   belongs_to :creator, :class_name => 'User'
-  belongs_to :category
+  belongs_to :category, optional: true
   
   has_many :tests_users, dependent: :destroy
   has_many :users, through: :tests_users
