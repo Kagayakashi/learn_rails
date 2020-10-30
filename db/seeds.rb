@@ -19,31 +19,31 @@ category_bpm = Category.new(title: 'Управление Бизнес Проце
 category_bpm.save!
 
 # Tests
-test_bpmn = Test.new(title: 'BPMN', category: category_bpm.id, level: 2, creator: admin.id)
+test_bpmn = Test.new(title: 'BPMN', category: category_bpm, level: 2, creator: admin)
 test_bpmn.save!
 
 # Questions & Answers
 
 # Q.1
-question_bpmn_message_event = Question.new(body: 'Каким элементом нотации является сообщение?')
+question_bpmn_message_event = Question.new(body: 'Каким элементом нотации является сообщение?', test: test_bpmn)
 question_bpmn_message_event.save!
 # A.1
 Answer.create!([
-  { body: 'Событие', correct: true, question: question_bpmn_message_event.id },
-  { body: 'Логический оператор', question: question_bpmn_message_event.id },
-  { body: 'Задача', question: question_bpmn_message_event.id },
+  { body: 'Событие', correct: true, question: question_bpmn_message_event},
+  { body: 'Логический оператор', question: question_bpmn_message_event },
+  { body: 'Задача', question: question_bpmn_message_event },
 ])
 
 # Q.2
-question_bpmn_stop_event = Question.new(body: 'Как обозначить окончание бизнес-процесса?')
+question_bpmn_stop_event = Question.new(body: 'Как обозначить окончание бизнес-процесса?', test: test_bpmn)
 question_bpmn_stop_event.save!
 # A.2
 Answer.create!([
-  { body: 'Событие с одной тонкой линией', question: question_bpmn_stop_event.id },
-  { body: 'Событие с двумя толнкими линиями', question: question_bpmn_stop_event.id },
-  { body: 'Событие с толстой линией', correct: true, question: question_bpmn_stop_event.id },
+  { body: 'Событие с одной тонкой линией', question: question_bpmn_stop_event },
+  { body: 'Событие с двумя толнкими линиями', question: question_bpmn_stop_event },
+  { body: 'Событие с толстой линией', correct: true, question: question_bpmn_stop_event },
 ])
 
 # Testings
-TestsUser.create!(test: test_bpmn.id, user: user.id)
-TestsUser.create!(test: test_bpmn.id, user: user.id, state: 'Выполнен')
+TestsUser.create!(test: test_bpmn, user: user)
+TestsUser.create!(test: test_bpmn, user: admin, state: 'Finish')
