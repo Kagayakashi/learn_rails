@@ -1,2 +1,0 @@
-class Testing < ApplicationRecord
-end
