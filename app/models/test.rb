@@ -12,13 +12,13 @@ class Test < ApplicationRecord
   scope :normal, -> { where(level: 2..4).order(created_at: :desc) }
   scope :hard, -> { where(level: 5..).order(created_at: :desc) }
   
-  validates :title, presence: true,
-                    uniqueness: true
-  validates :level, numericality: { only_integer: true }
-
-  def self.tests_name_with_category_desc(category)
+  scope :by_category_desc, ->(category) {
     joins(:category)
       .where(categories: { title: category })
       .order(title: :desc)
-  end
+  }
+  
+  validates :title, presence: true,
+                    uniqueness: true
+  validates :level, numericality: { only_integer: true }
 end
