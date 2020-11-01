@@ -6,6 +6,14 @@ class Test < ApplicationRecord
   has_many :users, through: :tests_users
   has_many :questions, dependent: :destroy
 
+  default_scope { order(created_at: :desc) }
+  
+  scope :easy, -> { where(level: 0..1).order(created_at: :desc) }
+  
+  validates :title, presence: true,
+                    uniqueness: true
+  validates :level, numericality: { only_integer: true }
+
   def self.tests_name_with_category_desc(category)
     joins(:category)
       .where(categories: { title: category })
