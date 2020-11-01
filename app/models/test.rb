@@ -9,6 +9,8 @@ class Test < ApplicationRecord
   default_scope { order(created_at: :desc) }
   
   scope :easy, -> { where(level: 0..1).order(created_at: :desc) }
+  scope :normal, -> { where(level: 2..4).order(created_at: :desc) }
+  scope :hard, -> { where(level: 5..).order(created_at: :desc) }
   
   validates :title, presence: true,
                     uniqueness: true
