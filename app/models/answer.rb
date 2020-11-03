@@ -4,4 +4,6 @@ class Answer < ApplicationRecord
   scope :correct_answers, ->(questions) {
     joins(:question).where(correct: true, question: questions)
   }
+  
+  validates :body, presence: true
 end
