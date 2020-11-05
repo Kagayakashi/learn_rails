@@ -6,4 +6,12 @@ class Answer < ApplicationRecord
   }
   
   validates :body, presence: true
+  
+  validate :validate_maximum_answers
+
+  def validate_maximum_answers
+    if question.answers.length == 4
+      errors.add(:question, 'Всего может быть 4 ответа у вопроса.')
+    end
+  end
 end
