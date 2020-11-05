@@ -1,8 +1,8 @@
 class Answer < ApplicationRecord
   belongs_to :question
   
-  scope :correct_answers, ->(questions) {
-    joins(:question).where(correct: true, question: questions)
+  scope :correct, -> {
+    where(correct: true)
   }
   
   validates :body, presence: true
