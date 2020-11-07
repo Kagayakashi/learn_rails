@@ -8,14 +8,12 @@ class Test < ApplicationRecord
   has_many :users, through: :tests_users
   has_many :questions, dependent: :destroy
   
-  scope :easy, -> { where(level: 0..1).order(created_at: :desc) }
-  scope :normal, -> { where(level: 2..4).order(created_at: :desc) }
-  scope :hard, -> { where(level: 5..).order(created_at: :desc) }
+  scope :easy, -> { where(level: 0..1) }
+  scope :normal, -> { where(level: 2..4) }
+  scope :hard, -> { where(level: 5..) }
   
   scope :by_category_desc, ->(category) {
-    joins(:category)
-      .where(categories: { title: category })
-      .order(title: :desc)
+    joins(:category).where(categories: { title: category })
   }
   
   validates :title, presence: true,
