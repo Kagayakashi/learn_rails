@@ -12,7 +12,7 @@ class Test < ApplicationRecord
   scope :normal, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..) }
   
-  scope :by_category_desc, ->(category) do
+  scope :by_category, ->(category) do
     joins(:category).where(categories: { title: category })
   end
   
