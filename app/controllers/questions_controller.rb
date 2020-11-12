@@ -1,10 +1,8 @@
-class TestsController < ApplicationController
+class QuestionsController < ApplicationController
   def index
-    render plain: 'Список вопросов теста X'
   end
 
   def show
-    render plain: 'Вопрос Y'
   end
   
   def destroy
