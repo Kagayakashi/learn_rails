@@ -9,7 +9,6 @@ class TestsController < ApplicationController
   end
   
   def show
-    render plain: 'Test'
   end
   
   private
