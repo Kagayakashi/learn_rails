@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Вопросы</title>
+    <title>Список вопросов</title>
   </head>
   <body>
-    <h1>Список вопросов теста X</h1>
-    <p><a href="/questions/1">Вопрос Y</a></p>
+    <h3>Список вопросов теста <%= @test.title %></h3>
+    
+    <ol>
+      <% @questions.each do |q| %>
+      <li><a href="/questions/<%= q.id %>"><%= q.body %></a></li>
+      <% end %>
+    </ol>
+    
   </body>
 </html>
