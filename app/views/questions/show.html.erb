@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Вопрос Y</title>
+    <title>Информация о вопросе</title>
   </head>
   <body>
-    <h1>Вопрос Y</h1>
-    <p>Информация</p>
+    <p><b><%= @question.body %></b></p>
+    
+    <ol>
+      <% @question.answers.each do |a| %>
+      <li><%= a.body %></li>
+      <% end %>
+    </ol>
   </body>
 </html>
