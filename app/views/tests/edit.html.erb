@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Новый тест</title>
+    <title>Изменение теста</title>
   </head>
   <body>
     <h1>Изменение теста</h1>
@@ -11,7 +11,7 @@
       <% if @test.errors.any? %>
         <div id="error_explanation">
           <h2>
-            Ошибок: <%= pluralize(@test.errors.count, '.') %> не удалось изменить тест:
+            <%= pluralize(@test.errors.count, 'ошибка', 'ошибки') %> не позволяет изменить тест:
           </h2>
           <ul>
             <% @test.errors.full_messages.each do |msg| %>
@@ -36,6 +36,8 @@
       </p>
      
     <% end %>
+    
+    <%= link_to 'Назад', tests_path %>
     
   </body>
 </html>

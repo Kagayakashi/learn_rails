@@ -6,21 +6,37 @@
   <body>
     <h1>Создание теста</h1>
     
-    <form action="/tests" method="post">
-      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-    
-      <p>
-        <label for="test-title">Наименование:</label>
-        <input type="text" name="test[title]" id="test-title">
-      </p><br>
+    <%= form_with scope: :test, url: tests_path, local: true do |form| %>
+      
+      <% if @test.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@test.errors.count, 'ошибка', 'ошибки') %> не позволяет создать тест:
+          </h2>
+          <ul>
+            <% @test.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
       
       <p>
-        <label for="test-level">Уровень:</label>
-        <input type="text" name="test[level]" id="test-level">
-      </p><br>
-      
-      <input type="submit" value="Создать">
-    </form>
+        <%= form.label :title, 'Наименование' %><br>
+        <%= form.text_field :title %>
+      </p>
+     
+      <p>
+        <%= form.label :level, 'Уровень' %><br>
+        <%= form.text_field :level %>
+      </p>
+     
+      <p>
+        <%= form.submit 'Добавить' %>
+      </p>
+    <% end %>
     
+    <%= link_to 'Назад', tests_path %>
+
   </body>
 </html>

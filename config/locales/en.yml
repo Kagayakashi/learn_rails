@@ -31,19 +31,3 @@
 
 en:
   hello: "Hello world"
-ru:  
-  activerecord:
-    models: 
-      test: "Тест"
-    attributes:
-      test:
-        title: "Наименование"
-        level: "Уровень"
-    errors:
-      models:
-        test:
-          attributes:
-            title:
-              blank: "не может быть пустым."
-            level:
-              not_a_number: "может иметь значение 0 и выше."

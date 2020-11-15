@@ -1,0 +1,19 @@
+ru:  
+  activerecord:
+    models: 
+      test: "Тест"
+    attributes:
+      test:
+        creator: "Автор"
+        title: "Наименование"
+        level: "Уровень"
+    errors:
+      models:
+        test:
+          attributes:
+            creator:
+              required: "не может быть пустым."
+            title:
+              blank: "не может быть пустым."
+            level:
+              not_a_number: "может иметь значение 0 и выше."
