@@ -1,12 +1,12 @@
 class AnswersController < ApplicationController
   
-  before_action :find_question, only: %i[create]
+  before_action :find_question, only: %i[new create]
   before_action :find_answer, only: %i[edit update destroy]
 
   after_action :send_log_controller_action
   around_action :send_log_execution_time
 
-  #rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_answer_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_answer_not_found
  
   def new
     @answer = Answer.new
@@ -15,7 +15,7 @@ class AnswersController < ApplicationController
   def create
     @answer = @question.answers.new(answer_params)
     if @answer.save
-      redirect_to @answer
+      redirect_to @question
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class AnswersController < ApplicationController
 
   def update
     if @answer.update(answer_params)
-      redirect_to @question
+      redirect_to @answer.question
     else
       render 'edit'
     end
@@ -35,7 +35,7 @@ class AnswersController < ApplicationController
   def destroy
     @answer.destroy
  
-    redirect_to question_path(@question)
+    redirect_to question_path(@answer.question)
   end
 
   private
@@ -46,11 +46,11 @@ class AnswersController < ApplicationController
 
   def find_answer
     @answer = Answer.find(params[:id])
-    @question = @answer.question
   end
 
   def find_question
     @question = Question.find(params[:question_id])
+    puts "Questions: #{@question}"
   end
 
   def send_log_controller_action

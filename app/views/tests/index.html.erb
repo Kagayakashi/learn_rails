@@ -6,6 +6,8 @@
   <body>
     <h4>Список тестов</h4>
     
+    <%= link_to 'Добавить тест', new_test_path %><br><br>
+    
     <table>
       <% @tests.each do |test| %>
       <tr>

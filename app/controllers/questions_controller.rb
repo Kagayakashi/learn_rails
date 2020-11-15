@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   
-  before_action :find_test, only: %i[index create]
+  before_action :find_test, only: %i[index new create]
   before_action :find_question, only: %i[show edit update destroy]
 
   after_action :send_log_controller_action
@@ -43,7 +43,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
  
-    redirect_to test_questions_path(@test)
+    redirect_to test_questions_path(@question.test)
   end
   
   private
@@ -58,7 +58,6 @@ class QuestionsController < ApplicationController
 
   def find_question
     @question = Question.find(params[:id])
-    @test = @question.test
   end
 
   def send_log_controller_action

@@ -6,7 +6,7 @@
   <body>
     <h1>Создание вопроса</h1>
     
-    <%= form_with scope: :question, url: test_questions_path, local: true do |form| %>
+    <%= form_with model: [@test, @question], local: true do |form| %>
       
       <% if @question.errors.any? %>
         <div id="error_explanation">

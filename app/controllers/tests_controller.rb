@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
   
-  before_action :find_test, only: %i[show edit update, destroy]
+  before_action :find_test, only: %i[show edit update destroy]
+  
   after_action :send_log_controller_action
   around_action :send_log_execution_time
   
@@ -26,10 +27,12 @@ class TestsController < ApplicationController
   
   def new
     @test = Test.new
+    @test.creator = User.find(1)
   end
   
   def create
     @test = Test.new(test_params)
+    @test.creator = User.find(1)
     if @test.save
       redirect_to @test
     else

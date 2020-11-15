@@ -8,6 +8,7 @@
   
     <p>Наименование: <%= @test.title %></p>
     <p>Уровень: <%= @test.level %></p>
+    <p>Автор: <%= @test.creator.username %></p>
     
     <%= link_to 'Список вопросов теста', test_questions_path(@test) %><br><br>
     <br>
