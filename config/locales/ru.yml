@@ -7,6 +7,8 @@ ru:
         creator: "Автор"
         title: "Наименование"
         level: "Уровень"
+      question:
+        body: "Наименование"
     errors:
       models:
         test:
@@ -17,3 +19,7 @@ ru:
               blank: "не может быть пустым."
             level:
               not_a_number: "может иметь значение 0 и выше."
+        question:
+          attributes:
+            body:
+              blank: "не может быть пустым."
