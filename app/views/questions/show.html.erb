@@ -12,7 +12,7 @@
     <table>
       <% @question.answers.each do |answer| %>
       <tr>
-        <td><b><%= link_to answer.body, answer_path(answer) %><b></td>
+        <td><b><%= answer.body %><b></td>
         <td><sup><%= link_to 'Изменить', edit_answer_path(answer) %></sup></td>
         <td><sup>|</sup></td>
         <td><sup><%= link_to 'Удалить', answer_path(answer),

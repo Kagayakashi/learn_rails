@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   after_action :send_log_controller_action
   around_action :send_log_execution_time
 
-  #rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   
   def index
     @questions = @test.questions
@@ -21,8 +21,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_params)
-    @question.test = @test
+    @question = @test.questions.new(question_params)
     if @question.save
       redirect_to @question
     else
@@ -50,7 +49,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:body, :test_id)
+    params.require(:question).permit(:body)
   end
 
   def find_test

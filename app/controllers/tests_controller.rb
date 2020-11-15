@@ -38,7 +38,9 @@ class TestsController < ApplicationController
   end
 
   def destroy
-    redirect_to @test
+    @test.destroy
+ 
+    redirect_to tests_path(@test)
   end
   
   private

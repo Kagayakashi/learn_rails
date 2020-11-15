@@ -9,6 +9,9 @@ ru:
         level: "Уровень"
       question:
         body: "Наименование"
+      answer:
+        question: "Вопрос"
+        body: "Наименование"
     errors:
       models:
         test:
@@ -20,6 +23,10 @@ ru:
             level:
               not_a_number: "может иметь значение 0 и выше."
         question:
+          attributes:
+            body:
+              blank: "не может быть пустым."
+        answer:
           attributes:
             body:
               blank: "не может быть пустым."

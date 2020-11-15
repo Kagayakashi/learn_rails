@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   
   resources :tests do
     resources :questions, shallow: true do
-      resources :answers, shallow: true
+      resources :answers, only: %i[new create edit update destroy], shallow: true
     end
   end
   
