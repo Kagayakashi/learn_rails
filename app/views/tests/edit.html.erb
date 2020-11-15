@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Новый тест</title>
+  </head>
+  <body>
+    <h1>Изменение теста</h1>
+     
+    <%= form_with(model: @test, local: true) do |form| %>
+     
+      <% if @test.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            Ошибок: <%= pluralize(@test.errors.count, '.') %> не удалось изменить тест:
+          </h2>
+          <ul>
+            <% @test.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+     
+      <p>
+        <%= form.label :title, 'Наименование' %><br>
+        <%= form.text_field :title %>
+      </p>
+     
+      <p>
+        <%= form.label :level, 'Уровень' %><br>
+        <%= form.text_field :level %>
+      </p>
+     
+      <p>
+        <%= form.submit 'Изменить' %>
+      </p>
+     
+    <% end %>
+    
+  </body>
+</html>

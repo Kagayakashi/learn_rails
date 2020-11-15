@@ -4,7 +4,19 @@
     <title>Информация о тесте</title>
   </head>
   <body>
-    <h1>Test</h1>
-    <p><a href="/tests/1/start">Тест X</a></p>
+    <h4>Информация о тесте</h4>
+  
+    <p>Наименование: <%= @test.title %></p>
+    <p>Уровень: <%= @test.level %></p>
+    
+    <%= link_to 'Список вопросов теста', test_questions_path(@test) %><br><br>
+    <br>
+    <%= link_to 'Изменить тест', edit_test_path %>
+    <br>
+    <%= link_to 'Удалить тест', test_path,
+                 method: :delete,
+                 data: { confirm: 'Вы уверены, что хотите удалить тест?' } %>
+    <br><br>
+    <%= link_to 'Назад', :back %>
   </body>
 </html>

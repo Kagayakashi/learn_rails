@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Новый тест</title>
+  </head>
+  <body>
+    <h1>Создание теста</h1>
+    
+    <form action="/tests" method="post">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    
+      <p>
+        <label for="test-title">Наименование:</label>
+        <input type="text" name="test[title]" id="test-title">
+      </p><br>
+      
+      <p>
+        <label for="test-level">Уровень:</label>
+        <input type="text" name="test[level]" id="test-level">
+      </p><br>
+      
+      <input type="submit" value="Создать">
+    </form>
+    
+  </body>
+</html>

@@ -30,6 +30,10 @@ Rails.application.routes.draw do
   # transfer http methods post get put from /cars/1 to controller method cars->todo
   # - match '/cars/:id', to 'cars#todo', via: :all
   
+  # /cars/740/m62
+  # hardcoded level value
+  # - get '/cars/:model/:engine', to: 'cars#search', level: 2
+  
   # root to: models#newest # home page is newest car model
   
   # exec - rails routes
@@ -38,8 +42,5 @@ Rails.application.routes.draw do
     resources :questions, shallow: true
   end
   
-  get '/tests/:id/start', to: 'tests#start'
-  
   root to: 'tests#index'
-  
 end
