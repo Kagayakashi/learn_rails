@@ -27,12 +27,11 @@ class TestsController < ApplicationController
   
   def new
     @test = Test.new
-    @test.creator = User.find(1)
   end
   
   def create
     @test = Test.new(test_params)
-    @test.creator = User.find(1)
+    @test.creator = User.first
     if @test.save
       redirect_to @test
     else
