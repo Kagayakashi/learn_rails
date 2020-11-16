@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Тесты</title>
+  </head>
+  <body>
+    <h4>Список тестов</h4>
+    
+    <%= link_to 'Добавить тест', new_test_path %><br><br>
+    
+    <table>
+      <% @tests.each do |test| %>
+      <tr>
+        <td><b><%= link_to test.title, test_path(test) %><b></td>
+        <td><sup><%= link_to 'Изменить', edit_test_path(test) %></sup></td>
+        <td><sup>|</sup></td>
+        <td><sup><%= link_to 'Удалить', test_path(test),
+                 method: :delete,
+                 data: { confirm: 'Вы уверены, что хотите удалить тест?' } %></sup></td>
+      <tr>
+      <% end %>
+    </table>
+    
+  </body>
+</html>

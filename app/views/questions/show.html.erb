@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Информация о вопросе</title>
+  </head>
+  <body>
+
+    <h4>Список ответов вопроса "<%= @question.body %>"</h4>
+    
+    <%= link_to 'Добавить ответ', new_question_answer_path(@question) %><br><br>
+
+    <table>
+      <% @question.answers.each do |answer| %>
+      <tr>
+        <td><b><%= answer.body %><b></td>
+        <td><sup><%= link_to 'Изменить', edit_answer_path(answer) %></sup></td>
+        <td><sup>|</sup></td>
+        <td><sup><%= link_to 'Удалить', answer_path(answer),
+                 method: :delete,
+                 data: { confirm: 'Вы уверены, что хотите удалить ответ?' } %></sup></td>
+      <tr>
+      <% end %>
+    </table><br>
+    
+    <%= link_to 'Изменить вопрос', edit_question_path %>
+    <br>
+    <%= link_to 'Удалить вопрос', question_path,
+                 method: :delete,
+                 data: { confirm: 'Вы уверены, что хотите удалить вопрос?' } %>
+    <br><br>
+
+    <%= link_to 'Назад', test_questions_path(@question.test) %>
+
+</html>

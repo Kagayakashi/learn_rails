@@ -12,7 +12,7 @@ class Answer < ApplicationRecord
   private
   def validate_maximum_answers
     if question.answers.count >= 4
-      errors.add(:question, 'Всего может быть 4 ответа у вопроса.')
+      errors.add(:question, 'максимум может иметь  4 ответа.')
     end
   end
 end
