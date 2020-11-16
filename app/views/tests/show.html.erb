@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Информация о тесте</title>
-  </head>
-  <body>
-    <h4>Информация о тесте</h4>
-  
-    <p>Наименование: <%= @test.title %></p>
-    <p>Уровень: <%= @test.level %></p>
-    <p>Автор: <%= @test.creator.username %></p>
-    
-    <%= link_to 'Список вопросов теста', test_questions_path(@test) %><br><br>
-    <br>
-    <%= link_to 'Изменить тест', edit_test_path %>
-    <br>
-    <%= link_to 'Удалить тест', test_path,
-                 method: :delete,
-                 data: { confirm: 'Вы уверены, что хотите удалить тест?' } %>
-    <br><br>
-    <%= link_to 'Назад', tests_path %>
-  </body>
-</html>
+<h4>Информация о тесте</h4>
+
+<p>Наименование: <%= @test.title %></p>
+<p>Уровень: <%= test_level(@test) %></p>
+<p>Автор: <%= @test.creator.username %></p>
+
+<%= link_to 'Список вопросов теста', test_questions_path(@test) %><br><br>
+<br>
+<%= link_to 'Изменить тест', edit_test_path %>
+<br>
+<%= link_to 'Удалить тест', test_path,
+             method: :delete,
+             data: { confirm: 'Вы уверены, что хотите удалить тест?' } %>
+<br><br>
+<%= link_to 'Назад', tests_path %>

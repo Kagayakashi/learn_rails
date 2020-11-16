@@ -1,0 +1,30 @@
+<%= form_with model: [@question, @answer], local: true do |form| %>
+  <% if @answer.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@answer.errors.count, 'ошибка', 'ошибки') %> не позволяет создать вопрос:
+      </h2>
+      <ul>
+        <% @answer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :body, 'Наименование' %><br>
+    <%= form.text_field :body %>
+  </p>
+
+  <p>
+    <%= form.label :correct, 'Правильный ответ' %><br>
+    <%= form.check_box :correct %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Назад', question_path(@question) %>
