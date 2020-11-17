@@ -1,16 +1,5 @@
 <%= form_with model: [@question, @answer], local: true do |form| %>
-  <% if @answer.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@answer.errors.count, 'ошибка', 'ошибки') %> не позволяет создать вопрос:
-      </h2>
-      <ul>
-        <% @answer.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/errors', resource: @answer %>
 
   <p>
     <%= form.label :body, 'Наименование' %><br>
