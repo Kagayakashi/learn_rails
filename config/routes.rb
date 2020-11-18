@@ -40,9 +40,20 @@ Rails.application.routes.draw do
   
   resources :categories
   
-  resources :tests do
-    resources :questions, only: %i[new create show edit update destroy], shallow: true do
+  # GET /test_passages/123/result
+  resources :test_passages, only: %i[ show update] do
+    member do
+      get :result
+    end
+  end
+  
+  resources :tests, except: :index do
+    resources :questions, except: :index, shallow: true do
       resources :answers, only: %i[new create edit update destroy], shallow: true
+    end
+    
+    member do
+      post :start
     end
   end
   

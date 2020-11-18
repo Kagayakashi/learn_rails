@@ -1,11 +1,11 @@
 class Test < ApplicationRecord
   default_scope { order(created_at: :desc) }
 
-  belongs_to :creator, :class_name => 'User'
+  belongs_to :creator, class_name: 'User', foreign_key: :creator_id, optional: true
   belongs_to :category, optional: true
   
-  has_many :tests_users, dependent: :destroy
-  has_many :users, through: :tests_users
+  has_many :test_passages, dependent: :destroy
+  has_many :users, through: :test_passages
   has_many :questions, dependent: :destroy
   
   scope :easy, -> { where(level: 0..1) }
