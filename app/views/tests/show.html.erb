@@ -4,7 +4,17 @@
 <p>Уровень: <%= test_level(@test) %></p>
 <p>Автор: <%= @test.creator.username %></p>
 
-<%= link_to 'Список вопросов теста', test_questions_path(@test) %><br><br>
+<h4>Вопросы теста</h4>
+
+<table>
+  <tr>
+    <td>Вопрос</td>
+    <td colspan="3">Операции</td>
+  </tr>
+  <%= render @test.questions %>
+</table><br>
+<%= link_to 'Добавить вопрос', new_test_question_path(@test) %><br>
+
 <br>
 <%= link_to 'Изменить тест', edit_test_path %>
 <br>
@@ -12,4 +22,4 @@
              method: :delete,
              data: { confirm: 'Вы уверены, что хотите удалить тест?' } %>
 <br><br>
-<%= link_to 'Назад', tests_path %>
+<%= link_to 'Назад', category_path(@test.category) %>

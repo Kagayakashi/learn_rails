@@ -7,10 +7,6 @@ class QuestionsController < ApplicationController
   around_action :send_log_execution_time
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-  
-  def index
-    @questions = @test.questions
-  end
 
   def show
     @answers = @question.answers

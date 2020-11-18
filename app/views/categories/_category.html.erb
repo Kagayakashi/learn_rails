@@ -1,0 +1,8 @@
+<tr>
+  <td><b><%= link_to category.title, category_path(category) %><b></td>
+  <td><sup><%= link_to 'Изменить', edit_category_path(category) %></sup></td>
+  <td><sup>|</sup></td>
+  <td><sup><%= link_to 'Удалить', category_path(category),
+           method: :delete,
+           data: { confirm: 'Вы уверены, что хотите удалить тест?' } %></sup></td>
+<tr>
