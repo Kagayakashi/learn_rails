@@ -1,5 +1,5 @@
 <tr>
-  <td><b><%= link_to test.title, test_path(test) %><b></td>
+  <td><b><%= link_to test.title, test_path(test) %><b><sup>Кол-во вопросов: <%= test.questions.count %></sup></td>
   <td><sup><%= link_to 'Изменить', edit_test_path(test) %></sup></td>
   <td><sup>|</sup></td>
   <td><sup><%= link_to 'Удалить', test_path(test),
