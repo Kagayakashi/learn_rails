@@ -7,11 +7,15 @@
 <h4>Вопросы теста</h4>
 
 <table>
-  <tr>
-    <td>Вопрос</td>
-    <td colspan="3">Операции</td>
-  </tr>
-  <%= render @test.questions %>
+  <thead>
+    <tr>
+      <td>Вопросы</td>
+      <td colspan="3">Операции</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @test.questions %>
+  </tbody>
 </table><br>
 <%= link_to 'Добавить вопрос', new_test_question_path(@test) %><br>
 
@@ -22,4 +26,4 @@
              method: :delete,
              data: { confirm: 'Вы уверены, что хотите удалить тест?' } %>
 <br><br>
-<%= link_to 'Назад', category_path(@test.category) %>
+<%= link_to 'Список категорий', categories_path %>

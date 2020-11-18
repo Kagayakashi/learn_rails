@@ -1,13 +1,9 @@
 class AnswersController < ApplicationController
-  
   before_action :find_question, only: %i[new create]
   before_action :find_answer, only: %i[edit update destroy]
 
-  after_action :send_log_controller_action
-  around_action :send_log_execution_time
-
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_answer_not_found
- 
+
   def new
     @answer = Answer.new
   end
@@ -53,18 +49,6 @@ class AnswersController < ApplicationController
     puts "Questions: #{@question}"
   end
 
-  def send_log_controller_action
-    logger.info("[#{controller_name}] [#{action_name}] was executed!")
-  end
-  
-  def send_log_execution_time
-    start = Time.now
-    yield
-    finish = Time.now - start
-    
-    logger.info("Execution time: #{finish * 1000}ms")
-  end 
-  
   def rescue_with_answer_not_found
     render plain: 'Answer was not found!'
   end

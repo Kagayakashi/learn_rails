@@ -1,6 +1,11 @@
 module AnswersHelper
-  def answer_header(hash)
-    text = hash[:answer].persisted? ? "Редактирвоание ответа вопроса #{hash[:answer].question.body}" : "Создание нового ответа вопроса #{hash[:question].body}"
-    render inline: "<h1>#{text}</h1>"
+  def answer_header(answer:, question:)
+    if answer.persisted?
+      text = "Редактирвоание ответа вопроса #{answer.question.body}"
+    else
+      text = "Создание нового ответа вопроса #{question.body}"
+    end
+
+    content_tag :h1, text
   end
 end

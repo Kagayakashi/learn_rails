@@ -3,17 +3,17 @@
 <%= link_to 'Добавить ответ', new_question_answer_path(@question) %><br><br>
 
 <table>
-  <% @question.answers.each do |answer| %>
-  <tr>
-    <td><b><%= answer.body %><b></td>
-    <td><sup><%= link_to 'Изменить', edit_answer_path(answer) %></sup></td>
-    <td><sup>|</sup></td>
-    <td><sup><%= link_to 'Удалить', answer_path(answer),
-             method: :delete,
-             data: { confirm: 'Вы уверены, что хотите удалить ответ?' } %></sup></td>
-  <tr>
-  <% end %>
-</table><br>
+  <thead>
+    <tr>
+      <td>Вопросы</td>
+      <td colspan="3">Операции</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @question.answers %>
+  </tbody>
+</table>
+<br>
 
 <%= link_to 'Изменить вопрос', edit_question_path %>
 <br>

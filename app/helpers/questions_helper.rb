@@ -1,6 +1,11 @@
 module QuestionsHelper
-  def question_header(hash)
-    text = hash[:question].persisted? ? "Редактирвоание вопроса теста #{hash[:question].test.title}" : "Создание нового вопроса теста #{hash[:test].title}"
-    render inline: "<h1>#{text}</h1>"
+  def question_header(question:, test:)
+    if question.persisted?
+      text = "Редактирвоание вопроса теста #{question.test.title}"
+    else
+      text = "Создание нового вопроса теста #{test.title}"
+    end
+
+    content_tag :h1, text
   end
 end

@@ -1,6 +1,11 @@
 module CategoriesHelper
-  def category_header(hash)
-    text = hash[:category].persisted? ? "Редактирвоание категории" : "Создание новой категории"
-    render inline: "<h1>#{text}</h1>"
+  def category_header(category:)
+    if category.persisted?
+      text = "Редактирвоание категории"
+    else
+      text = "Создание новой категории"
+    end
+
+    content_tag :h1, text
   end
 end

@@ -5,12 +5,17 @@
 <h4>Тесты категории</h4>
 
 <table>
-  <tr>
-    <td>Тесты</td>
-    <td colspan="3">Операции</td>
-  </tr>
-  <%= render @category.tests %>
-</table><br>
+  <thead>
+    <tr>
+      <td>Тесты</td>
+      <td colspan="3">Операции</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @category.tests %>
+  </tbody>
+</table>
+<br>
 <%= link_to 'Добавить тест', new_test_path %><br>
 
 <br>
