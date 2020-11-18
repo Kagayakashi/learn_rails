@@ -1,5 +1,4 @@
 module TestsHelper
-
   TEST_LEVELS = {
     0 => :Легкий,
     1 => :Легкий,

@@ -1,3 +1,5 @@
+<%= answer_header answer: @answer, question: @question %>
+
 <%= form_with model: [@question, @answer], local: true do |form| %>
   <%= render 'shared/errors', resource: @answer %>
 
@@ -16,4 +18,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Назад', question_path(@question) %>
+<%= link_to 'Назад', question_path(@answer.question ||= @question) %>
