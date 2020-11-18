@@ -1,8 +1,11 @@
 <tr>
-  <td><b><%= link_to test.title, test_path(test) %><b></td>
-  <td><sup><%= link_to 'Изменить', edit_test_path(test) %></sup></td>
-  <td><sup>|</sup></td>
-  <td><sup><%= link_to 'Удалить', test_path(test),
+  <td>
+    <%= link_to test.title, test_path(test) %>
+    <span class="sup sup-red">Кол-во вопросов: <%= test.questions.count %></span>
+  </td>
+  <td><span class="sup"><%= link_to 'Изменить', edit_test_path(test) %></span></td>
+  <td><span class="sup">|</span></td>
+  <td><span class="sup"><%= link_to 'Удалить', test_path(test),
            method: :delete,
-           data: { confirm: 'Вы уверены, что хотите удалить тест?' } %></sup></td>
+           data: { confirm: 'Вы уверены, что хотите удалить тест?' } %></span></td>
 <tr>

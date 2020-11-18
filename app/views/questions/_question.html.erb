@@ -1,0 +1,10 @@
+<tr>
+  <td>
+    <%= link_to question.body, question_path(question) %>
+  </td>
+  <td><span class="sup"><%= link_to 'Изменить', edit_question_path(question) %></span></td>
+  <td><span class="sup">|</span></td>
+  <td><span class="sup"><%= link_to 'Удалить', question_path(question),
+           method: :delete,
+           data: { confirm: 'Вы уверены, что хотите удалить вопрос?' } %></span></td>
+<tr>

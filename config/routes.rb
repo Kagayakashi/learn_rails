@@ -38,11 +38,13 @@ Rails.application.routes.draw do
   
   # exec - rails routes
   
+  resources :categories
+  
   resources :tests do
-    resources :questions, shallow: true do
+    resources :questions, only: %i[new create show edit update destroy], shallow: true do
       resources :answers, only: %i[new create edit update destroy], shallow: true
     end
   end
   
-  root to: 'tests#index'
+  root to: 'categories#index'
 end

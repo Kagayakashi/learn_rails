@@ -20,6 +20,7 @@ ru:
               required: "не может быть пустым."
             title:
               blank: "не может быть пустым."
+              taken: "уже используется."
             level:
               not_a_number: "может иметь значение 0 и выше."
         question:

@@ -3,5 +3,15 @@
 <%= link_to 'Добавить тест', new_test_path %><br><br>
 
 <table>
-  <%= render @tests %>
+  <thead>
+    <tr>
+      <td>Тесты</td>
+      <td colspan="3">Операции</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @tests %>
+  </tbody>
 </table>
+
+<%= link_to 'Список категорий', categories_path %>

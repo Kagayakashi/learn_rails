@@ -10,6 +10,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= render "shared/header" %>
+    </header>
+    
+    <main>
+      <%= yield %>
+    </main>
+    
+    <footer>
+      <%= render "shared/footer" %>
+    </footer>
   </body>
 </html>
