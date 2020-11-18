@@ -1,4 +1,4 @@
-<%= test_header(@test) %>
+<%= test_header test: @test %>
 
 <%= form_with model: @test, local: true do |form| %>
   <%= render 'shared/errors', resource: @test %>

@@ -12,8 +12,8 @@ module TestsHelper
     TEST_LEVELS[test.level] || :Сложный
   end
   
-  def test_header(test)
-    text = test.persisted? ? "Редактирвоание теста #{test.title}" : "Создание нового теста"
+  def test_header(hash)
+    text = hash[:test].persisted? ? "Редактирвоание теста #{hash[:test].title}" : "Создание нового теста"
     render inline: "<h1>#{text}</h1>"
   end
 end
