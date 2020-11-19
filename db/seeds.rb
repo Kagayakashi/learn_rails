@@ -8,8 +8,8 @@
 
 
 # Users
-user = User.new(username: 'user', password: 'user')
-admin = User.new(username: 'admin', password: 'admin', admin: true)
+user = User.new(username: 'user', password: 'user', email: 'user@example.com')
+admin = User.new(username: 'admin', password: 'admin', admin: true, email: 'admin@example.com')
 
 user.save!
 admin.save!
@@ -44,6 +44,4 @@ Answer.create!([
   { body: 'Событие с толстой линией', correct: true, question: question_bpmn_stop_event },
 ])
 
-# Testings
-TestsUser.create!(test: test_bpmn, user: user)
-TestsUser.create!(test: test_bpmn, user: admin, state: 'Finish')
+

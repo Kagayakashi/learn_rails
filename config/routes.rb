@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   resources :categories
   
   # GET /test_passages/123/result
-  resources :test_passages, only: %i[ show update] do
+  resources :test_passages, only: %i[show update] do
     member do
       get :result
     end

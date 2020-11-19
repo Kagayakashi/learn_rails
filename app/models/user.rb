@@ -10,6 +10,6 @@ class User < ApplicationRecord
   end
   
   def test_passage(test)
-    test_passages.order(cteated_at: :desc).find_by(test_id: test.id)
+    test_passages.order(created_at: :desc).find_by(test_id: test.id)
   end
 end
