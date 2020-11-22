@@ -1,0 +1,16 @@
+<%= question_header question: @question, test: @test %>
+
+<%= form_with model: [@test, @question], local: true do |form| %>
+  <%= render 'shared/errors', resource: @question %>
+  
+  <p>
+    <%= form.label :body, 'Наименование' %><br>
+    <%= form.text_field :body %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Назад', test_path(@question.test ||= @test) %>

@@ -1,0 +1,29 @@
+<h4>Информация о тесте</h4>
+
+<p>Наименование: <%= @test.title %></p>
+<p>Уровень: <%= test_level(@test) %></p>
+<p>Автор: <%= @test.creator.username %></p>
+
+<h4>Вопросы теста</h4>
+
+<table>
+  <thead>
+    <tr>
+      <td>Вопросы</td>
+      <td colspan="3">Операции</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @test.questions %>
+  </tbody>
+</table><br>
+<%= link_to 'Добавить вопрос', new_test_question_path(@test) %><br>
+
+<br>
+<%= link_to 'Изменить тест', edit_test_path %>
+<br>
+<%= link_to 'Удалить тест', test_path,
+             method: :delete,
+             data: { confirm: 'Вы уверены, что хотите удалить тест?' } %>
+<br><br>
+<%= link_to 'Назад', category_path(@test.category) %>

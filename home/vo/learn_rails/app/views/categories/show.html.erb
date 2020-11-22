@@ -1,0 +1,28 @@
+<h4>Информация о категории</h4>
+
+<p>Наименование: <%= @category.title %></p>
+
+<h4>Тесты категории</h4>
+
+<table>
+  <thead>
+    <tr>
+      <td>Тесты</td>
+      <td colspan="4">Операции</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @category.tests %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Добавить тест', new_test_path %><br>
+
+<br>
+<%= link_to 'Изменить категорию', edit_category_path %>
+<br>
+<%= link_to 'Удалить категорию', category_path,
+             method: :delete,
+             data: { confirm: 'Вы уверены, что хотите удалить категорию?' } %>
+<br><br>
+<%= link_to 'Назад', categories_path %>

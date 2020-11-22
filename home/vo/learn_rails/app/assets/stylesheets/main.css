@@ -1,0 +1,19 @@
+span.sup {
+  vertical-align:super;
+  font-size:12px;
+}
+
+span.sup a {
+  text-decoration:none;
+}
+span.sup a:hover {
+  text-decoration:underline;
+}
+
+.sup-red {
+  color: #ff0000; 
+}
+
+table {
+  border: 1px solid gray;
+}
