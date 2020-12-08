@@ -47,8 +47,9 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :tests, except: :index do
-    resources :questions, except: :index, shallow: true do
+  #resources :tests, except: :index do
+  resources :tests do
+  resources :questions, except: :index, shallow: true do
       resources :answers, only: %i[new create edit update destroy], shallow: true
     end
     

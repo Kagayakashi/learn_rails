@@ -1,5 +1,6 @@
 <%= content_tag :h1, @test_passage.test.title %>
 
+<%= content_tag :h3, questions_amount(@test_passage) %>
 
 <p><%= @test_passage.current_question.body %></p>
 
