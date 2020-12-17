@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/new'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   # Resources examples
@@ -57,6 +58,10 @@ Rails.application.routes.draw do
       post :start
     end
   end
+  
+  get :signup, to: 'users#new'
+  
+  resources :users, only: :create
   
   root to: 'categories#index'
 end
