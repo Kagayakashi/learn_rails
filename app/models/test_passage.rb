@@ -5,6 +5,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
+  MINIMUM_GOOD_RESULT = 85
+
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
     self.current_question = next_question
@@ -24,7 +26,7 @@ class TestPassage < ApplicationRecord
   end
   
   def test_result_good?
-    correct_answers_percent >= 85
+    correct_answers_percent >= MINIMUM_GOOD_RESULT
   end
 
   private
