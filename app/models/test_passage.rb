@@ -5,6 +5,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
+  MINIMUM_GOOD_RESULT = 85
+
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
     self.current_question = next_question
@@ -15,6 +17,18 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  def current_question_number
+    test.questions.order(:id).where('id <= ?', current_question.id).count
+  end
+  
+  def correct_answers_percent
+    (correct_questions.to_f / test.questions.count.to_f * 100).to_i
+  end
+  
+  def test_result_good?
+    correct_answers_percent >= MINIMUM_GOOD_RESULT
+  end
+
   private
 
   def before_validation_set_first_question
@@ -22,9 +36,7 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
-    correct_answers_count = correct_answers.count
-    (correct_answers_count == correct_answers.where(id: answer_ids).count &&
-     correct_answers_count == answer_ids.count)
+    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 
   def correct_answers

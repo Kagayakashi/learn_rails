@@ -1,3 +1,13 @@
+<%= javascript_pack_tag 'navigation_button' %>
+
 <div class="header">
-  <h1>Learn Rails with Thinknetica</h1>
+  <span onclick="open_nav()"><h1>Панель управления</h1></span>
+</div>
+
+<div id="side_nav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="close_nav()">&times;</a>
+  <a href="/categories">Категории</a>
+  <a href="/tests">Все тесты</a>
+  <a href="/about">О нас</a>
+  <a href="/about/author">Контакты</a>
 </div>
