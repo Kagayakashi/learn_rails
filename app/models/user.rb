@@ -1,7 +1,9 @@
-require 'digest/sha1'
-
 class User < ApplicationRecord
-  #include Auth
+  validates :email,
+  format: { with: /(.+)@(.+)/ },
+            uniqueness: { case_sensitive: false },
+            length: { minimum: 4 }
+
 
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
