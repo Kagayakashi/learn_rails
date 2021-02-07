@@ -1,9 +1,15 @@
 class User < ApplicationRecord
+  validates :email,
+  format: { with: /(.+)@(.+)/ },
+            uniqueness: { case_sensitive: false },
+            length: { minimum: 4 }
+
+
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
-  
   has_many :authored_tests, class_name: 'Test', foreign_key: :creator_id
-  validates :username, :password, :email, presence: true
+  
+  has_secure_password
   
   def tests_with_level(level)
     tests.where(level: level)
