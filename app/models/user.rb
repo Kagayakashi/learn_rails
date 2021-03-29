@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :registerable,
          :recoverable,
          :rememberable,
-         :validatable
+         :validatable,
+         :confirmable
 
   validates :username, presence: true, uniqueness: true
   validates :email, format: { with: /(.+)@(.+)/ },
