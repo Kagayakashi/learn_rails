@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { registrations: "registrations" }
   get 'sessions/new'
   get 'users/new'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -59,12 +60,6 @@ Rails.application.routes.draw do
       post :start
     end
   end
-  
-  get :signup, to: 'users#new'
-  get :signin, to: 'sessions#new'
-  
-  resources :users, only: :create
-  resources :sessions, only: :create
   
   root to: 'categories#index'
 end
