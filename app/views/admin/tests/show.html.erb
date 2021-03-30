@@ -14,15 +14,15 @@
     </tr>
   </thead>
   <tbody>
-    <%= render @test.questions %>
+    <%= render partial: 'questions/question', collection: @test.questions %>
   </tbody>
 </table><br>
 <%= link_to 'Добавить вопрос', new_test_question_path(@test) %><br>
 
 <br>
-<%= link_to 'Изменить тест', edit_test_path %>
+<%= link_to 'Изменить тест', edit_admin_test_path %>
 <br>
-<%= link_to 'Удалить тест', test_path,
+<%= link_to 'Удалить тест', admin_test_path,
              method: :delete,
              data: { confirm: 'Вы уверены, что хотите удалить тест?' } %>
 <br><br>

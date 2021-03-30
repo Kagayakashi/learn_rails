@@ -1,7 +1,5 @@
 <h4>Список ответов вопроса "<%= @question.body %>"</h4>
 
-<%= link_to 'Добавить ответ', new_question_answer_path(@question) %><br><br>
-
 <table>
   <thead>
     <tr>
@@ -15,11 +13,4 @@
 </table>
 <br>
 
-<%= link_to 'Изменить вопрос', edit_question_path %>
-<br>
-<%= link_to 'Удалить вопрос', question_path,
-             method: :delete,
-             data: { confirm: 'Вы уверены, что хотите удалить вопрос?' } %>
-<br><br>
-
-<%= link_to 'Назад', test_path(@question.test) %>
+<%= link_to 'Назад', admin_test_path(@question.test) %>

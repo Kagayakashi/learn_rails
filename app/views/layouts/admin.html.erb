@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Panel - LearnRails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <%= render "shared/header" %>
+
+    <main>
+      <div id="flash">
+        <%= render 'shared/flash' %>
+      </div>
+      <div id="main">
+        <%= yield %>
+      </div>
+    </main>
+    
+    <footer>
+      <%= render "shared/footer" %>
+    </footer>
+  </body>
+</html>

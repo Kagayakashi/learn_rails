@@ -51,7 +51,7 @@ Rails.application.routes.draw do
   end
   
   #resources :tests, except: :index do
-  resources :tests do
+  resources :tests, only: :index do
   resources :questions, except: :index, shallow: true do
       resources :answers, only: %i[new create edit update destroy], shallow: true
     end
@@ -61,5 +61,9 @@ Rails.application.routes.draw do
     end
   end
   
+ namespace :admin do
+ 	resources :tests
+ end
+
   root to: 'categories#index'
 end
