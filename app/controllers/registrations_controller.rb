@@ -1,6 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  private
+  protected
+
+  def after_sign_in_path_for(resource)
+	end
+
+	private
 
   def sign_up_params
     params.require(:user).permit(:email, :username, :password, :password_confirmation)

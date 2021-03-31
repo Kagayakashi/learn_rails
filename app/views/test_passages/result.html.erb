@@ -1,9 +1,10 @@
-<%= content_tag :h1, "Тест #{@test_passage.test.title} завершен!" %>
-
 <div class="results">
+	<%= content_tag :h4, "Тест #{@test_passage.test.title} завершен!" %>
   <%= content_tag :span, "Количество правильных ответов: ", class: 'result_text_begin' %>
   <%= content_tag :span, answers_result(@test_passage), class: "result_percent #{result_class(@test_passage)}" %>
   <%= content_tag :span, result_text(@test_passage), class: "result_text_end #{result_class(@test_passage)}" %>
 </div>
 
-<%= link_to 'Список тестов', tests_path %>
+<div class="button-back">
+	<%= link_to 'Назад', category_path(@test_passage.test.category) %>
+</div>

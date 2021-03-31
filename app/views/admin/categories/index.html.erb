@@ -1,0 +1,15 @@
+<h1>Список категорий</h1>
+
+<%= link_to 'Добавить категорию', new_category_path %><br><br>
+
+<table>
+<thead>
+    <tr>
+      <td>Категории</td>
+      <td colspan="3">Операции</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @categories %>
+  </tbody>
+</table>
