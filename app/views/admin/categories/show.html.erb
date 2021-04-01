@@ -1,20 +1,12 @@
-<h4>Информация о категории</h4>
+<h4>Категория: <%= @category.title %></h4>
 
-<p>Наименование: <%= @category.title %></p>
+<div class="test-list">
+	<h4>Тесты</h4>
+	<ul>
+		<%= render @category.tests %>
+	</ul>
+</div>
 
-<h4>Тесты категории</h4>
-
-<table>
-  <thead>
-    <tr>
-      <td>Тесты</td>
-      <td colspan="4">Операции</td>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @category.tests %>
-  </tbody>
-</table>
-<br>
-<br>
-<%= link_to 'Назад', categories_path %>
+<div class="button-back">
+	<%= link_to 'Назад', admin_root_path %>
+</div>

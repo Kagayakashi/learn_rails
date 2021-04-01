@@ -1,29 +1,32 @@
-<h4>Информация о тесте</h4>
+<div class="info-block">
+  <h4>Информация о тесте</h4>
 
-<p>Наименование: <%= @test.title %></p>
-<p>Уровень: <%= test_level(@test) %></p>
-<p>Автор: <%= @test.creator.username %></p>
+  <p>Наименование: <%= @test.title %></p>
+  <p>Уровень: <%= test_level(@test) %></p>
+  <p>Автор: <%= @test.creator.username.capitalize %></p>
+</div>
 
-<h4>Вопросы теста</h4>
+<div class="button-control">
+  <%= link_to 'Добавить вопрос', new_admin_test_question_path(@test) %><br>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <td>Вопросы</td>
-      <td colspan="3">Операции</td>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render partial: 'questions/question', collection: @test.questions %>
-  </tbody>
-</table><br>
-<%= link_to 'Добавить вопрос', new_test_question_path(@test) %><br>
+<div class="question-list">
+  <h4>Вопросы</h4>
+  <ul>
+    <%= render partial: 'admin/questions/question', collection: @test.questions %>
+  </ul>
+</div>
 
-<br>
-<%= link_to 'Изменить тест', edit_admin_test_path %>
-<br>
-<%= link_to 'Удалить тест', admin_test_path,
+<div class="button-control">
+  <%= link_to 'Изменить тест', edit_admin_test_path %>
+</div>
+
+<div class="button-control">
+  <%= link_to 'Удалить тест', admin_test_path,
              method: :delete,
-             data: { confirm: 'Вы уверены, что хотите удалить тест?' } %>
-<br><br>
-<%= link_to 'Назад', category_path(@test.category) %>
+             data: { confirm: 'Вы уверены, что хотите удалить тест?' } %><br />
+</div>
+
+<div class="button-back">
+  <%= link_to 'Назад', admin_category_path(@test.category) %>
+</div>

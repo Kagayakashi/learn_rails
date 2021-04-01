@@ -1,8 +1,7 @@
-<tr>
-  <td><%= answer.body %></td>
-  <td><span class="sup"><%= link_to 'Изменить', edit_answer_path(answer) %></span></td>
-  <td><span class="sup">|</span></td>
-  <td><span class="sup"><%= link_to 'Удалить', answer_path(answer),
+<li>
+	<%= answer.body %>
+	<%= link_to 'Изменить', edit_admin_test_question_answer_path(answer.question.test, answer.question, answer) %>
+	<%= link_to 'Удалить', admin_test_question_answer_path(answer.question.test, answer.question, answer),
            method: :delete,
-           data: { confirm: 'Вы уверены, что хотите удалить ответ?' } %></span></td>
-<tr>
+           data: { confirm: 'Вы уверены, что хотите удалить ответ?' } %>
+</li>

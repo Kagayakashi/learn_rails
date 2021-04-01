@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::BaseController
   before_action :authenticate_user!
   before_action :find_category, only: %i[show edit update destroy]
 
@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(caregory_params)
-      redirect_to @category
+      redirect_to admin_category_path(@category)
     else
       render 'edit'
     end
@@ -29,7 +29,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(caregory_params)
     if @category.save
-      redirect_to @category
+      redirect_to admin_category_path(@category)
     else
       render 'new'
     end
@@ -37,7 +37,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
-    redirect_to categories_path
+    redirect_to admin_categories_path
   end
 
   private

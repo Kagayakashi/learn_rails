@@ -1,9 +1,5 @@
-<tr>
-  <td>
-    <%= link_to test.title, admin_test_path(test) %>
-    <span class="sup sup-red">Кол-во вопросов: <%= test.questions.count %></span>
-  </td>
-  <td><%= button_to 'Запустить', start_test_path(test) %></td>
-  <td><span class="sup"><%= link_to 'Изменить', edit_admin_test_path(test) %></span></td>
-  <td></td>
-<tr>
+<li>
+	<%= link_to test.title, admin_test_path(test) %>
+	<span>вопросов: <%= test.questions.count %></span>
+	<%= link_to 'Изменить', edit_admin_test_path(test) %>
+</li>

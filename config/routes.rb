@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "registrations" }
-  devise_for :admins, controllers: { registrations: "registrations" }
+  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :admins, path: 'admins'
+
   
-  get 'sessions/new'
-  get 'users/new'
   # https://guides.rubyonrails.org/routing.html
   
   resources :categories
@@ -22,9 +21,24 @@ Rails.application.routes.draw do
     end
   end
   
- namespace :admin do
- 	resources :tests, :categories, :answers, :questions
- end
+  namespace :admin do
+    resources :categories
+ 	  
+    resources :tests do
+      resources :questions do
+        resources :answers
+      end
+    end
+    
+    root to: 'categories#index'
+  end
 
-  root to: 'categories#index'
+  get 'sessions/new'
+  get 'users/new'
+
+  get 'categories' => 'categories#index', as: 'user_root'
+  
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
 end
