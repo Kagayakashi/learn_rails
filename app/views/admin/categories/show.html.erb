@@ -1,10 +1,10 @@
 <h4>Категория: <%= @category.title %></h4>
 
 <div class="test-list">
-	<h4>Тесты</h4>
-	<ul>
-		<%= render @category.tests %>
-	</ul>
+  <h4>Тесты</h4>
+  <ul>
+    <%= render @category.tests %>
+  </ul>
 </div>
 
 <div class="button-control">
@@ -13,10 +13,10 @@
 
 <div class="button-control">
   <%= link_to 'Удалить категорию', admin_category_path(@category),
-		method: :delete,
-		data: { confirm: 'Вы уверены, что хотите удалить категорию?' } %><br />
+    method: :delete,
+    data: { confirm: 'Вы уверены, что хотите удалить категорию?' } %><br />
 </div>
 
 <div class="button-back">
-	<%= link_to 'Назад', admin_root_path %>
+  <%= link_to 'Назад', admin_root_path %>
 </div>

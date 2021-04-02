@@ -1,7 +1,7 @@
 <li>
-	<%= answer.body %> |
-	<%= link_to 'Изменить', edit_admin_answer_path(answer) %> |
-	<%= link_to 'Удалить', admin_answer_path(answer),
-		method: :delete,
-		data: { confirm: 'Вы уверены, что хотите удалить ответ?' } %>
+  <%= answer.body %> |
+  <%= link_to 'Изменить', edit_admin_answer_path(answer) %> |
+  <%= link_to 'Удалить', admin_answer_path(answer),
+    method: :delete,
+    data: { confirm: 'Вы уверены, что хотите удалить ответ?' } %>
 </li>

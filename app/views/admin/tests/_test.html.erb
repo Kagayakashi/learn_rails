@@ -1,7 +1,7 @@
 <li>
-	<%= link_to test.title, admin_test_path(test) %>
-	<span>вопросов: <%= test.questions.count %></span> |
-	<%= link_to 'Удалить', admin_test_path(test),
-		method: :delete,
-		data: { confirm: 'Вы уверены, что хотите удалить тест?' } %>
+  <%= link_to test.title, admin_test_path(test) %>
+  <span>вопросов: <%= test.questions.count %></span> |
+  <%= link_to 'Удалить', admin_test_path(test),
+    method: :delete,
+    data: { confirm: 'Вы уверены, что хотите удалить тест?' } %>
 </li>
