@@ -1,8 +1,7 @@
 class Admin::AnswersController < Admin::BaseController
   before_action :authenticate_user!
-  before_action :find_test
-  before_action :find_question
-  before_action :find_answer
+  before_action :find_answer, except: %i[new create]
+  before_action :find_question, only: %i[new create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_answer_not_found
 
@@ -13,7 +12,7 @@ class Admin::AnswersController < Admin::BaseController
   def create
     @answer = @question.answers.new(answer_params)
     if @answer.save
-      redirect_to admin_test_question_path(@question)
+      redirect_to admin_question_path(@answer.question)
     else
       render 'new'
     end
@@ -24,7 +23,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def update
     if @answer.update(answer_params)
-      redirect_to admin_test_question_path(@question)
+      redirect_to admin_question_path(@answer.question)
     else
       render 'edit'
     end
@@ -33,7 +32,7 @@ class Admin::AnswersController < Admin::BaseController
   def destroy
     @answer.destroy
  
-    redirect_to admin_test_question_path(@question)
+    redirect_to admin_question_path(@answer.question)
   end
 
   private
@@ -48,10 +47,6 @@ class Admin::AnswersController < Admin::BaseController
 
   def find_question
     @question = Question.find(params[:question_id])
-  end
-
-  def find_test
-    @test = Test.find(params[:test_id])
   end
 
   def rescue_with_answer_not_found

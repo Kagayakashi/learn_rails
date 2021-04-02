@@ -1,7 +1,7 @@
 module QuestionsHelper
   def question_header(question:, test:)
     if question.persisted?
-      text = "Редактирвоание вопроса теста #{question.test.title}"
+      text = "Редактирвоание вопроса теста #{test.title}"
     else
       text = "Создание нового вопроса теста #{test.title}"
     end

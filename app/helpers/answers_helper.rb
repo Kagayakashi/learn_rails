@@ -1,7 +1,7 @@
 module AnswersHelper
   def answer_header(answer:, question:)
     if answer.persisted?
-      text = "Редактирвоание ответа вопроса #{answer.question.body}"
+      text = "Редактирвоание ответа вопроса #{question.body}"
     else
       text = "Создание нового ответа вопроса #{question.body}"
     end

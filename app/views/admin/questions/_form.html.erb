@@ -1,4 +1,4 @@
-<%= question_header question: @question, test: @test %>
+<%= question_header question: @question, test: @test || @question.test %>
 
 <%= form_with model: [:admin, @test, @question], local: true do |form| %>
   <%= render 'shared/errors', resource: @question %>
@@ -14,5 +14,5 @@
 <% end %>
 
 <div class="button-back">
-	<%= link_to 'Назад', admin_test_path(@question.test ||= @test) %>
+	<%= link_to 'Назад', :back %>
 </div>

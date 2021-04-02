@@ -1,6 +1,6 @@
-<%= answer_header answer: @answer, question: @question %>
+<%= answer_header answer: @answer, question: @question || @answer.question %>
 
-<%= form_with model: [:admin, @test, @question, @answer], local: true do |form| %>
+<%= form_with model: [:admin, @question, @answer], local: true do |form| %>
   <%= render 'shared/errors', resource: @answer %>
 
   <p>
@@ -19,5 +19,5 @@
 <% end %>
 
 <div class="button-back">
-  <%= link_to 'Назад', admin_test_question_path(@answer.question ||= @question) %>
+  <%= link_to 'Назад', :back %>
 </div>

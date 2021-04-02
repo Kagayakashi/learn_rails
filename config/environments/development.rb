@@ -62,5 +62,5 @@ Rails.application.configure do
 
   # Mailer
   config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.default_url_options = {host: '217.24.65.184', port: 80}
+  config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
 end
