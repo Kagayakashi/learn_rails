@@ -1,8 +1,8 @@
 class Test < ApplicationRecord
   default_scope { order(created_at: :desc) }
 
-  belongs_to :creator, class_name: 'User', foreign_key: :creator_id, optional: true
-  belongs_to :category, optional: true
+  belongs_to :creator, class_name: 'User', foreign_key: :creator_id
+  belongs_to :category
   
   has_many :test_passages, dependent: :destroy
   has_many :users, through: :test_passages

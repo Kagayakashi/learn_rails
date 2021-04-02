@@ -1,5 +1,9 @@
 <h4>Категория: <%= @category.title %></h4>
 
+<div class="button-control">
+  <%= link_to 'Добавить тест', new_admin_category_test_path(@category) %><br>
+</div>
+
 <div class="test-list">
   <h4>Тесты</h4>
   <ul>

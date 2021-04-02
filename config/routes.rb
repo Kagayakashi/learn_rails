@@ -15,10 +15,11 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-    resources :categories
-    resources :tests, except: %i[index], shallow: true do
-      resources :questions, except: %i[index], shallow: true do
-        resources :answers, except: %i[index show], shallow: true
+    resources :categories, shallow: true do
+      resources :tests, except: %i[index], shallow: true do
+        resources :questions, except: %i[index], shallow: true do
+          resources :answers, except: %i[index show], shallow: true
+        end
       end
     end
     root to: 'categories#index'

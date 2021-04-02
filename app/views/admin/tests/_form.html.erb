@@ -1,6 +1,6 @@
 <%= test_header test: @test %>
 
-<%= form_with model: [:admin, @test], local: true do |form| %>
+<%= form_with model: [:admin, @category, @test], local: true do |form| %>
   <%= render 'shared/errors', resource: @test %>
 
   <p>
@@ -11,11 +11,6 @@
   <p>
     <%= form.label :level %><br>
     <%= form.text_field :level %>
-  </p>
-
-  <p>
-    <%= form.label :category_id %><br>
-    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>
 
   <p>
