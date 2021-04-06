@@ -6,11 +6,11 @@ class Admin::AnswersController < Admin::BaseController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_answer_not_found
 
   def new
-    @answer = Answer.new
+    @answer = @question.answers.new
   end
 
   def create
-    @answer = @question.answers.new(answer_params)
+    @answer = @question.answers.build(answer_params)
     if @answer.save
       redirect_to admin_question_path(@answer.question)
     else

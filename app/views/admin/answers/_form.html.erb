@@ -1,4 +1,4 @@
-<%= answer_header answer: @answer, question: @question || @answer.question %>
+<%= answer_header answer: @answer %>
 
 <%= form_with model: [:admin, @question, @answer], local: true do |form| %>
   <%= render 'shared/errors', resource: @answer %>

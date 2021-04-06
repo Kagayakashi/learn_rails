@@ -20,12 +20,12 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def new
-    @test = Test.new
+    @test = @category.tests.new
   end
 
   def create
     @test = current_user.authored_tests.build(test_params)
-    @test.category = @category;
+    @test.category = @category
     if @test.save
       redirect_to admin_test_path(@test)
     else

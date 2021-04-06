@@ -10,11 +10,11 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def new
-    @question = Question.new
+    @question = @test.questions.new
   end
 
   def create
-    @question = @test.questions.new(question_params)
+    @question = @test.questions.build(question_params)
     if @question.save
       redirect_to admin_question_path(@question)
     else
