@@ -1,0 +1,24 @@
+<div class="button-control">
+  <%= link_to 'Добавить ответ', new_admin_question_answer_path(@question) %><br>
+</div>
+
+<div class="answer-list">
+  <h4>Список ответов вопроса "<%= @question.body %>"</h4>
+  <ul>
+    <%= render @question.answers %>
+  </ul>
+</div>
+
+<div class="button-control">
+  <%= link_to 'Изменить вопрос', edit_admin_question_path(@question) %>
+</div>
+
+<div class="button-control">
+  <%= link_to 'Удалить вопрос', admin_question_path(@question),
+    method: :delete,
+    data: { confirm: 'Вы уверены, что хотите удалить тест?' } %><br />
+</div>
+
+<div class="button-back">
+  <%= link_to 'Назад', admin_test_path(@question.test) %>
+</div>

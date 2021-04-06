@@ -1,6 +1,6 @@
 <%= category_header category: @category %>
 
-<%= form_with model: @category, local: true do |form| %>
+<%= form_with model: [:admin, @category], local: true do |form| %>
   <%= render 'shared/errors', resource: @category %>
 
   <p>

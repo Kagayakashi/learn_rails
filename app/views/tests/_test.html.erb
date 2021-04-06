@@ -1,8 +1,4 @@
-<tr>
-  <td>
-    <span class="sup sup-red">Кол-во вопросов: <%= test.questions.count %></span>
-  </td>
-  <td><%= button_to 'Запустить', start_test_path(test) %></td>
-  <td></td>
-  <td></td>
-<tr>
+<li>
+  <%= button_to test.title, start_test_path(test) %>
+  <span>вопросов: <%= test.questions.count %></span>
+</li>

@@ -1,6 +1,6 @@
 <%= test_header test: @test %>
 
-<%= form_with model: [:admin, @test], local: true do |form| %>
+<%= form_with model: [:admin, @category, @test], local: true do |form| %>
   <%= render 'shared/errors', resource: @test %>
 
   <p>
@@ -14,13 +14,10 @@
   </p>
 
   <p>
-    <%= form.label :category_id %><br>
-    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
-  </p>
-
-  <p>
     <%= form.submit %>
   </p>
 <% end %>
 
-<%= link_to 'Назад', :back %>
+<div class="button-back">
+  <%= link_to 'Назад', :back %>
+</div>

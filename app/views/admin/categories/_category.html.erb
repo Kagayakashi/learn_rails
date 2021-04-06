@@ -1,0 +1,6 @@
+<li>
+  <%= link_to category.title, admin_category_path(category) %> |
+  <%= link_to 'Удалить', admin_category_path(category),
+    method: :delete,
+    data: { confirm: 'Вы уверены, что хотите удалить тест?' } %>
+</li>

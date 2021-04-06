@@ -9,10 +9,6 @@ class User < ApplicationRecord
          :confirmable
 
   validates :username, presence: true, uniqueness: true
-  validates :email, format: { with: /(.+)@(.+)/ },
-            uniqueness: { case_sensitive: false },
-            length: { minimum: 4 }
-
 
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages

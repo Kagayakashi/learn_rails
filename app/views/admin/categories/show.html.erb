@@ -1,0 +1,26 @@
+<h4>Категория: <%= @category.title %></h4>
+
+<div class="button-control">
+  <%= link_to 'Добавить тест', new_admin_category_test_path(@category) %><br>
+</div>
+
+<div class="test-list">
+  <h4>Тесты</h4>
+  <ul>
+    <%= render @category.tests %>
+  </ul>
+</div>
+
+<div class="button-control">
+  <%= link_to 'Изменить категорию', edit_admin_category_path(@category) %>
+</div>
+
+<div class="button-control">
+  <%= link_to 'Удалить категорию', admin_category_path(@category),
+    method: :delete,
+    data: { confirm: 'Вы уверены, что хотите удалить категорию?' } %><br />
+</div>
+
+<div class="button-back">
+  <%= link_to 'Назад', admin_root_path %>
+</div>
