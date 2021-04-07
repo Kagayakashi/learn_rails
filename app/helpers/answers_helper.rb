@@ -2,11 +2,10 @@ module AnswersHelper
   def answer_header(answer:)
     text = 
       if answer.persisted?
-        "Редактирвоание ответа вопроса #{answer.question.body}"
+        I18n.t('helpers.custom.header.answer.editing')
       else
-        "Создание нового ответа вопроса #{answer.question.body}"
+        I18n.t('helpers.custom.header.answer.creating')
       end
-
     content_tag :h1, text
   end
 end

@@ -1,32 +1,32 @@
 <div class="info-block">
-  <h4>Информация о тесте</h4>
+  <h4><%= @test.title %></h4>
 
-  <p>Наименование: <%= @test.title %></p>
-  <p>Уровень: <%= test_level(@test) %></p>
-  <p>Автор: <%= @test.creator.username.capitalize %></p>
+  <p><%= t :level %>: <%= @test.title %></p>
+  <p><%= @test.class.human_attribute_name(:level) %>: <%= test_level(@test) %></p>
+  <p><%= @test.class.human_attribute_name(:author) %>: <%= @test.creator.username.capitalize %></p>
 </div>
 
 <div class="button-control">
-  <%= link_to 'Добавить вопрос', new_admin_test_question_path(@test) %><br>
+  <%= link_to t('.new_question'), new_admin_test_question_path(@test) %><br>
 </div>
 
 <div class="question-list">
-  <h4>Вопросы</h4>
+  <h4><%= t('.questions') %></h4>
   <ul>
     <%= render partial: 'admin/questions/question', collection: @test.questions %>
   </ul>
 </div>
 
 <div class="button-control">
-  <%= link_to 'Изменить тест', edit_admin_test_path %>
+  <%= link_to t('.button_edit'), edit_admin_test_path %>
 </div>
 
 <div class="button-control">
-  <%= link_to 'Удалить тест', admin_test_path,
+  <%= link_to t('.button_delete'), admin_test_path,
     method: :delete,
-    data: { confirm: 'Вы уверены, что хотите удалить тест?' } %><br />
+    data: { confirm: t('.confirm_delete') } %><br />
 </div>
 
 <div class="button-back">
-  <%= link_to 'Назад', admin_category_path(@test.category) %>
+  <%= link_to t('.button_back'), admin_category_path(@test.category) %>
 </div>

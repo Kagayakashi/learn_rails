@@ -1,13 +1,17 @@
 <div class="footer">
   <p>&copy; <%= footer_year(2020) %></p>
-  <p>Автор: <a href="mailto:kagayakashi@hotmail.com" rel="nofollow" target="_blank">Вячеслав Одиноков</a></p>
-  <p>Проект: <%= link_to_github 'kagayakashi', 'learn_rails', 'Тестирование' %>
-    - анкетирование пользователей, проведение тестов для проверки ваших знаний.
+  <p>
+    <%= t('.author') %>:
+    <a href="mailto:kagayakashi@hotmail.com" rel="nofollow" target="_blank"><%= t('.author_name') %></a>
+  </p>
+  <p><%= t('.project') %>:
+    <%= link_to_github 'kagayakashi', 'learn_rails', t('.project_name') %>
+    <%= t('.project_description') %>
   </p>
   
   <hr>
 
   <p>
-    <a href="https://thinknetica.com/" rel="nofollow" target="_blank">Учебный проект в онлайн-школе Thinknetica"</a>
+    <a href="https://thinknetica.com/" rel="nofollow" target="_blank"><%= t('.school') %></a>
   </p>
 </div>

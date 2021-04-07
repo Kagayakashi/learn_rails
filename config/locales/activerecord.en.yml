@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    models:
+      test: "Test"
+
+    attributes:
+      test:
+        level: "Difficult"
+        author: "Author"

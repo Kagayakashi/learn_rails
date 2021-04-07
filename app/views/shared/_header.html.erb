@@ -1,13 +1,14 @@
 <header>
   <div class="mailer-list">
-    <%= link_to 'Mailer List', '/rails/mailers/tests_mailer/' %>
+    <%= link_to t('.mailer'), '/rails/mailers/tests_mailer/' %>
   </div>
 
   <div class="header">
     <% if user_signed_in? %>
-      <p>Welcome, <%= current_user.username %>!</p>
+      <p><%= t('.welcome') %>, <%= current_user.username %>!</p>
+      <p><%= l(Time.current, format: :short) %></p>
 
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete  %>
+      <%= link_to t('.logout'), destroy_user_session_path, method: :delete  %>
     <% end %>
   </div>
 </header>

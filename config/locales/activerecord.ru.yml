@@ -1,0 +1,9 @@
+ru:
+  activerecord:
+    models:
+      test: "Тест"
+
+    attributes:
+      test:
+        level: "Сложность"
+        author: "Автор"

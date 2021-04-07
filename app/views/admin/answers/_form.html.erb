@@ -4,12 +4,12 @@
   <%= render 'shared/errors', resource: @answer %>
 
   <p>
-    <%= form.label :body, 'Наименование' %><br>
+    <%= form.label :body %><br>
     <%= form.text_field :body %>
   </p>
 
   <p>
-    <%= form.label :correct, 'Правильный ответ' %><br>
+    <%= form.label :correct %><br>
     <%= form.check_box :correct %>
   </p>
 
@@ -19,5 +19,5 @@
 <% end %>
 
 <div class="button-back">
-  <%= link_to 'Назад', :back %>
+  <%= link_to t('.button_back'), :back %>
 </div>

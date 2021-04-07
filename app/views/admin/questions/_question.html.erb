@@ -1,6 +1,6 @@
 <li>
   <%= link_to question.body, admin_question_path(question) %> |
-  <%= link_to 'Удалить', admin_question_path(question),
+  <%= link_to t('.button_delete'), admin_question_path(question),
     method: :delete,
-    data: { confirm: 'Вы уверены, что хотите удалить вопрос?' } %>
+    data: { confirm: t('.confirm_delete') } %>
 </li>
