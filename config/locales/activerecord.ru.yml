@@ -7,3 +7,9 @@ ru:
       test:
         level: "Сложность"
         author: "Автор"
+      user:
+        email: "Электронный адрес"
+        username: "Имя пользователя"
+        password: "Пароль"
+        password_conformation: "Подтверждение пароля"
+        remember_me: "Запомнить меня"

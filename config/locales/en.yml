@@ -98,11 +98,19 @@ en:
         confirm_delete: "Are you sure?"
       form:
         button_back: "Back"
+  categories:
+    index:
+      header: "Category list"
+    show:
+      button_back: "Back"
+      tests: "Tests"
   test_passages:
     result:
       header: "Test %{test} completed!"
       correct_answers: "Correct answers:"
       button_back: "Back"
+    show:
+      button_next: "Next"
   shared:
     errors:
       header:

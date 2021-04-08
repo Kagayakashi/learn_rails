@@ -98,11 +98,19 @@ ru:
         confirm_delete: "Вы уверены?"
       form:
         button_back: "Назад"
+  categories:
+    index:
+      header: "Категории"
+    show:
+      button_back: "Назад"
+      tests: "Тесты"
   test_passages:
     result:
       header: "Тест %{test} завершен!"
       correct_answers: "Правильных ответов:"
       button_back: "Назад"
+    show:
+      button_next: "Далее"
   shared:
     errors:
       header:
