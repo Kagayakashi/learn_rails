@@ -124,8 +124,10 @@ en:
       project_description: "- questionnaire testing, conducting tests to test your knowledge."
       school: 'Study project in the online school "Thinknetica"'
     header:
+      admin: "Admin panel"
       mailer: "Mailer List"
       welcome: "Welcome"
+    auth:
       logout: "Logout"
   tests_mailer:
     completed_test:
