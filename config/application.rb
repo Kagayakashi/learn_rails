@@ -14,7 +14,7 @@ module LearnRails
     # Timezone
     config.time_zone = 'Riga'
     # Locale
-    config.i18n.available_locales = [:ru, :en]
+    config.i18n.available_locales = [:en, :ru]
     config.i18n.default_locale = :ru
     
     # Settings in config/environments/* take precedence over those specified here.

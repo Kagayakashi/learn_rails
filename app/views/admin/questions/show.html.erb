@@ -1,24 +1,28 @@
+<div class="info-block">
+  <h4><%= @question.body %></h4>
+</div>
+
 <div class="button-control">
-  <%= link_to 'Добавить ответ', new_admin_question_answer_path(@question) %><br>
+  <%= link_to t('.new_answer'), new_admin_question_answer_path(@question) %><br>
 </div>
 
 <div class="answer-list">
-  <h4>Список ответов вопроса "<%= @question.body %>"</h4>
+  <h4><%= t('.answers') %></h4>
   <ul>
     <%= render @question.answers %>
   </ul>
 </div>
 
 <div class="button-control">
-  <%= link_to 'Изменить вопрос', edit_admin_question_path(@question) %>
+  <%= link_to t('.button_edit'), edit_admin_question_path(@question) %>
 </div>
 
 <div class="button-control">
-  <%= link_to 'Удалить вопрос', admin_question_path(@question),
+  <%= link_to t('.button_delete'), admin_question_path(@question),
     method: :delete,
-    data: { confirm: 'Вы уверены, что хотите удалить тест?' } %><br />
+    data: { confirm: t('.confirm_delete') } %><br />
 </div>
 
 <div class="button-back">
-  <%= link_to 'Назад', admin_test_path(@question.test) %>
+  <%= link_to t('.button_back'), admin_test_path(@question.test) %>
 </div>

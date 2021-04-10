@@ -1,12 +1,12 @@
-<h4>Категория: <%= @category.title %></h4>
+<h4><%= @category.title %></h4>
 
 <div class="test-list">
-  <h4>Тесты</h4>
+  <h4><%= t('.tests') %></h4>
   <ul>
     <%= render @category.tests %>
   </ul>
 </div>
 
 <div class="button-back">
-  <%= link_to 'Назад', categories_path %>
+  <%= link_to t('.button_back'), categories_path %>
 </div>

@@ -1,9 +1,7 @@
-<h1>Список категорий</h1>
-
-<%= link_to 'Добавить категорию', new_admin_category_path %><br><br>
+<%= link_to t('.new_category'), new_admin_category_path %><br><br>
 
 <div class="category-list">
-  <h4>Категории</h4>
+  <h4><%= t('.header') %></h4>
   <ul>
     <%= render @categories %>
   </ul>

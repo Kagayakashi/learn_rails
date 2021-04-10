@@ -14,6 +14,10 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: 'Test', foreign_key: :creator_id
   
+  def admin?
+    
+  end
+
   def tests_with_level(level)
     tests.where(level: level)
   end

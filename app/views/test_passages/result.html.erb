@@ -1,10 +1,10 @@
 <div class="results">
-  <%= content_tag :h4, "Тест #{@test_passage.test.title} завершен!" %>
-  <%= content_tag :span, "Количество правильных ответов: ", class: 'result_text_begin' %>
+  <%= content_tag :h4, t('.header', test: @test_passage.test.title) %>
+  <%= content_tag :span, t('.correct_answers'), class: 'result_text_begin' %>
   <%= content_tag :span, answers_result(@test_passage), class: "result_percent #{result_class(@test_passage)}" %>
   <%= content_tag :span, result_text(@test_passage), class: "result_text_end #{result_class(@test_passage)}" %>
 </div>
 
 <div class="button-back">
-  <%= link_to 'Назад', category_path(@test_passage.test.category) %>
+  <%= link_to t('.button_back'), category_path(@test_passage.test.category) %>
 </div>

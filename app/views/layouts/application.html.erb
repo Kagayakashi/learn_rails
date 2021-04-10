@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>LearnRails</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,20 +13,19 @@
   </head>
 
   <body>
-    <%= render 'shared/header' %>
-
-    <main>
-      <div id="flash">
+    <section class="container-fluid root">
+      <header>
+        <%= render 'shared/header' %>
         <%= render 'shared/flash' %>
-      </div>
+      </header>
 
-      <div id="main">
+      <main class="content">
         <%= yield %>
-      </div>
-    </main>
+      </main>
     
-    <footer>
-      <%= render 'shared/footer' %>
-    </footer>
+      <footer class="footer font-small bg-dark pt-4">
+        <%= render 'shared/footer' %>
+      </footer>
+    </section>
   </body>
 </html>

@@ -1,33 +1,134 @@
-ru:  
-  activerecord:
-    models: 
-      test: "Тест"
-    attributes:
+ru:
+  helpers:
+    submit:
+      category:
+        create: "Создать"
+        update: "Изменить"
       test:
-        creator: "Автор"
-        title: "Наименование"
-        level: "Уровень"
+        create: "Создать"
+        update: "Изменить"
       question:
-        body: "Наименование"
+        create: "Создать"
+        update: "Изменить"
       answer:
-        question: "Вопрос"
-        body: "Наименование"
-    errors:
-      models:
+        create: "Создать"
+        update: "Изменить"
+    label:
+      category:
+        title: "Наименование"
+      test:
+        title: "Наименование"
+        level: "Сложность (0-5)"
+      question:
+        body: "Вопрос"
+      answer:
+        body: "Ответ"
+        correct: "Ответ правильный?"
+    custom:
+      header:
+        category:
+          editing: "Изменение категории"
+          creating: "Создание категории"
         test:
-          attributes:
-            creator:
-              required: "не может быть пустым."
-            title:
-              blank: "не может быть пустым."
-              taken: "уже используется."
-            level:
-              not_a_number: "может иметь значение 0 и выше."
+          editing: "Изменение теста"
+          creating: "Создание теста"
         question:
-          attributes:
-            body:
-              blank: "не может быть пустым."
+          editing: "Изменение вопроса"
+          creating: "Создание вопроса"
         answer:
-          attributes:
-            body:
-              blank: "не может быть пустым."
+          editing: "Изменение ответа"
+          creating: "Создание ответа"
+      label:
+        test:
+          level_easy: "Легкий"
+          level_normal: "Нормальный"
+          level_hard: "Сложный"
+        test_passage:
+          current_question: "Текущий вопрос"
+          passed: "Тест успешно пройден!"
+          not_passed: "Тест не пройден!"
+  admin:
+    categories:
+      index:
+        header: "Категории"
+        new_category: "Добавить категорию"
+      show:
+        button_back: "Назад"
+        button_edit: "Изменить категорию"
+        button_delete: "Удалить категорию"
+        confirm_delete: "Вы уверены?"
+        new_test: "Добавить тест"
+        tests: "Тесты"
+      form:
+        button_back: "Назад"
+      category:
+        button_delete: "Удалить"
+        confirm_delete: "Вы уверены?"
+    tests:
+      test:
+        questions: "Вопросы"
+        button_delete: "Удалить"
+        confirm_delete: "Вы уверены?"
+      form:
+        button_back: "Назад"
+      show:
+        button_back: "Назад"
+        button_edit: "Изменить test"
+        button_delete: "Удалить test"
+        confirm_delete: "Вы уверены?"
+        questions: "Вопросы"
+        new_question: "Добавить вопрос"
+    questions:
+      question:
+        button_delete: "Удалить"
+        confirm_delete: "Вы уверены?"
+      form:
+        button_back: "Назад"
+      show:
+        button_back: "Назад"
+        button_edit: "Изменить question"
+        button_delete: "Удалить question"
+        confirm_delete: "Вы уверены?"
+        answers: "Ответы"
+        new_answer: "Добавить ответ"
+    answers:
+      answer:
+        button_edit: "Изменить"
+        button_delete: "Удалить"
+        confirm_delete: "Вы уверены?"
+      form:
+        button_back: "Назад"
+  categories:
+    index:
+      header: "Категории"
+    show:
+      button_back: "Назад"
+      tests: "Тесты"
+  test_passages:
+    result:
+      header: "Тест %{test} завершен!"
+      correct_answers: "Правильных ответов:"
+      button_back: "Назад"
+    show:
+      button_next: "Далее"
+  shared:
+    errors:
+      header:
+        one: "Обнаружена %{count} ошибка"
+        few: "Обнаружены %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        other: "Обнаружены %{count} ошибки"
+    footer:
+      author: "Автор"
+      author_name: "Вячеслав Одиноков"
+      project: "Проект"
+      project_name: "Тестирование"
+      project_description: "- анкетирование пользователей, проведение тестов для проверки ваших знаний."
+      school: 'Учебный проект в онлайн-школе Thinknetica"'
+    header:
+      mailer: "Почтовый список"
+      welcome: "Добро пожаловать"
+      logout: "Выйти"
+  tests_mailer:
+    completed_test:
+      subject: "Вы завершили выполнение теста!"
