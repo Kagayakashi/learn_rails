@@ -1,17 +1,28 @@
-<div class="footer">
-  <p>&copy; <%= footer_year(2020) %></p>
-  <p>
-    <%= t('.author') %>:
-    <a href="mailto:kagayakashi@hotmail.com" rel="nofollow" target="_blank"><%= t('.author_name') %></a>
-  </p>
-  <p><%= t('.project') %>:
-    <%= link_to_github 'kagayakashi', 'learn_rails', t('.project_name') %>
-    <%= t('.project_description') %>
-  </p>
-  
-  <hr>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-md-6 mt-md-0 mt-3">
+      <p><%= t('.project') %>:
+        <%= link_to_github 'kagayakashi', 'learn_rails', t('.project_name') %>
+        <%= t('.project_description') %>
+      </p>
+    </div>
 
-  <p>
-    <a href="https://thinknetica.com/" rel="nofollow" target="_blank"><%= t('.school') %></a>
-  </p>
+    <hr class="clearfix w-100 d-md-none pb-1">
+
+    <div class="col-md-6 mt-md-0 mt-3">
+      <p>
+        <a href="https://thinknetica.com/" rel="nofollow" target="_blank"><%= t('.school') %></a>
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-copyright text-center col-md-12">
+    <p>
+      &copy; <%= footer_year(2020) %>
+      <%= t('.author') %>:
+      <a href="mailto:kagayakashi@hotmail.com" rel="nofollow" target="_blank">
+        <%= t('.author_name') %>
+      </a>
+    </p>
+  </div>
 </div>

@@ -1,14 +1,26 @@
-<header>
-  <div class="mailer-list">
-    <%= link_to t('.mailer'), '/rails/mailers/tests_mailer/' %>
-  </div>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <%= link_to 'Logo', root_path, class: 'navbar-brand' %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <div class="header">
-    <% if user_signed_in? %>
-      <p><%= t('.welcome') %>, <%= current_user.username %>!</p>
-      <p><%= l(Time.current, format: :short) %></p>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to t('.mailer'), '/rails/mailers/tests_mailer/', class: 'nav-link' %>
+      </li>
 
-      <%= link_to t('.logout'), destroy_user_session_path, method: :delete  %>
-    <% end %>
+      <%= render 'shared/admin/nav' %>
+
+      <li class="nav-item">
+        <span class="navbar-text text-info">
+          <%= l(Time.current, format: :short) %>
+        </span>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav my-2 my-lg-0">
+      <%= render 'shared/auth' %>
+    </ul>
   </div>
-</header>
+</nav>

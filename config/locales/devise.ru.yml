@@ -52,6 +52,9 @@ ru:
       new:
         sign_in: "Войти"
         header: "Вход"
+        enter_email: "Введите электронный адрес"
+        enter_password: "Введите пароль"
+        remember_me: "Запомнить меня"
       signed_in: "Выполнен вход успешно."
       signed_out: "Вы успешно вышли из системы."
       already_signed_out: "Вы уже вышли из системы."

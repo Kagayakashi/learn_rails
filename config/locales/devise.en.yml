@@ -52,6 +52,9 @@ en:
       new:
         sign_in: "Sign in"
         header: "Sign in"
+        enter_email: "Enter email"
+        enter_password: "Enter password"
+        remember_me: "Remember me"
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
