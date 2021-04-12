@@ -1,12 +1,10 @@
-<h4><%= @category.title %></h4>
+<h1><%= @category.title %></h1>
+<h2><%= t('.tests') %></h2>
 
-<div class="test-list">
-  <h4><%= t('.tests') %></h4>
-  <ul>
-    <%= render @category.tests %>
-  </ul>
+<div class="btn-group-vertical">
+  <%= render @category.tests %>
 </div>
 
-<div class="button-back">
+<div class="button-back mt-1">
   <%= link_to t('.button_back'), categories_path %>
 </div>

@@ -10,7 +10,9 @@
         <%= link_to t('.mailer'), '/rails/mailers/tests_mailer/', class: 'nav-link' %>
       </li>
 
-      <%= render 'shared/admin/nav' %>
+      <% if current_user.admin? %>
+        <%= link_to t('.admin'), admin_root_path, class: 'nav-link' %>
+      <% end %>
 
       <li class="nav-item">
         <span class="navbar-text text-info">

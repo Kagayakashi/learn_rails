@@ -126,8 +126,10 @@ ru:
       project_description: "- анкетирование пользователей, проведение тестов для проверки ваших знаний."
       school: 'Учебный проект в онлайн-школе Thinknetica"'
     header:
+      admin: "Панель администратора"
       mailer: "Почтовый список"
       welcome: "Добро пожаловать"
+    auth:
       logout: "Выйти"
   tests_mailer:
     completed_test:
