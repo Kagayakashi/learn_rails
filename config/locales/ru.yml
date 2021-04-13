@@ -111,6 +111,9 @@ ru:
       button_back: "Назад"
     show:
       button_next: "Далее"
+    gist:
+      success: "Gist успешно сохранён!"
+      failure: "Во время сохранения gist произошел сбой."
   shared:
     errors:
       header:

@@ -111,6 +111,9 @@ en:
       button_back: "Back"
     show:
       button_next: "Next"
+    gist:
+      success: "Gist was sucessfully saved!"
+      failure: "Failed to save gist."
   shared:
     errors:
       header:
