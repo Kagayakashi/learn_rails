@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
+    get'gists/github', to: 'gists#github'
+
+    resources :gists, only: %i[index github]
     resources :categories, shallow: true do
       resources :tests, except: %i[index], shallow: true do
         resources :questions, except: %i[index], shallow: true do
@@ -33,6 +36,6 @@ Rails.application.routes.draw do
     end
     root to: 'categories#index'
   end
-  
+
   root to: 'categories#index'
 end

@@ -1,4 +1,8 @@
 ru:
+  services:
+    gist:
+      question_about: "Вопрос теста %{test} из LearnRails."
+      file_name: "learn-rails-вопрос.txt"
   helpers:
     submit:
       category:
@@ -48,6 +52,9 @@ ru:
           passed: "Тест успешно пройден!"
           not_passed: "Тест не пройден!"
   admin:
+    gists:
+      index:
+        header: "Github gists"
     categories:
       index:
         header: "Категории"
@@ -112,7 +119,8 @@ ru:
     show:
       button_next: "Далее"
     gist:
-      success: "Gist успешно сохранён!"
+      created: "Gist"
+      success: "%{gist} успешно сохранён!"
       failure: "Во время сохранения gist произошел сбой."
   shared:
     errors:
@@ -129,6 +137,8 @@ ru:
       project_description: "- анкетирование пользователей, проведение тестов для проверки ваших знаний."
       school: 'Учебный проект в онлайн-школе Thinknetica"'
     header:
+      gist_list: "Список gist"
+      github_gist_list: "Список gist из Github"
       admin: "Панель администратора"
       mailer: "Почтовый список"
       welcome: "Добро пожаловать"
