@@ -1,25 +1,19 @@
  class GistService
-  attr_reader :question
 
-  def initialize(client: nil)
-    @client = client ||  Octokit::Client.new(:access_token => ENV['ACCESS_TOKEN'])
-  end
+  STATUS_CREATED = 201;
 
-  def question=(question)
+  def initialize(question, client: nil)
     @question = question
     @test = @question.test
+    @client = client ||  Octokit::Client.new(:access_token => ENV['ACCESS_TOKEN'])
   end
 
   def create_gist
     @client.create_gist(gist_params)
   end
 
-  def created_gists
-    @gists = @client.gists(@client.login)
-  end
-
   def success?
-    [200, 201, 202, 203, 204, 205, 206, 207, 208].include?(@client.last_response.status)
+    @client.last_response.status == 201
   end
 
   private
@@ -37,9 +31,7 @@
   end
 
   def gist_content
-    content = [@question.body]
-    content += @question.answers.pluck(:body)
-    content.join("\n")
+    [@question.body, *@question.answers.pluck(:body)].join("\n")
   end
 
 end

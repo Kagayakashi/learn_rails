@@ -118,7 +118,9 @@ en:
       button_back: "Back"
     show:
       button_next: "Next"
-    gist:
+      gist_question: "Create gist for question"
+  gists:
+    create:
       created: "Gist"
       success: "%{gist} was sucessfully saved!"
       failure: "Failed to save gist."

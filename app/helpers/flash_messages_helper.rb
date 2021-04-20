@@ -1,15 +1,25 @@
 module FlashMessagesHelper
-  def flash_bootstrap_class(key)
-    case key
-    when 'alert' then 'bg-warning text-dark'
-    when 'notice' then 'bg-success text-light'
-    when 'notice_url' then 'bg-success text-light'
-    end
+  def flash_message
+    first_div second_div paragraph
   end
 
-  def render_flash_message(key, message)
-    message = message.html_safe if key == 'notice_url'
-    content_tag :p, message,
-      class: "#{flash_bootstrap_class(key)} flash border border-primary"
+  private
+
+  def first_div(content)
+    tag.div content, class: 'row text-right mt-3'
+  end
+
+  def second_div(content)
+    tag.div content, class: 'col col-md-12'
+  end
+
+  def paragraph
+    if flash[:alert]
+      tag.p flash[:alert], class: 'bg-warning text-dark flash border border-primary'.html_safe
+    elsif flash[:notice]
+      tag.p flash[:notice], class: 'bg-success text-light flash border border-primary'.html_safe
+    elsif flash[:notice_url]
+      tag.p flash[:notice_url].html_safe, class: 'bg-success text-light flash border border-primary'.html_safe
+    end
   end
 end

@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
-  has_many :authored_tests, class_name: 'Test', foreign_key: :creator_id
+  has_many :authored_tests, class_name: 'Test', foreign_key: :creator_id, dependent: :destroy
   has_many :gists, dependent: :destroy
   
   def admin?

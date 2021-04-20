@@ -1,6 +1,6 @@
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_test_passage, only: %i[show update result gist]
+  before_action :set_test_passage, only: %i[show update result]
 
   def show
   end
@@ -17,23 +17,6 @@ class TestPassagesController < ApplicationController
     else
       render 'show'
     end
-  end
-
-  def gist
-    gist_service = GistService.new
-    gist_service.question = @test_passage.current_question
-    gist = gist_service.create_gist
-
-    current_user.gists.create!(question: @test_passage.current_question, url: gist.id)
-
-    flash_options = if gist_service.success?
-      { notice_url: t('.success', gist: view_context.link_to(t('.created'), gist.url,
-        class: 'text-light font-weight-bold')) }
-    else
-      { alert: t('.failure') }
-    end
-
-    redirect_to @test_passage, flash_options
   end
 
   private

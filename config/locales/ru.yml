@@ -118,7 +118,9 @@ ru:
       button_back: "Назад"
     show:
       button_next: "Далее"
-    gist:
+      gist_question: "Создать gist для вопроса"
+  gists:
+    create:
       created: "Gist"
       success: "%{gist} успешно сохранён!"
       failure: "Во время сохранения gist произошел сбой."
