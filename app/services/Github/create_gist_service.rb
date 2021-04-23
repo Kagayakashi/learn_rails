@@ -1,4 +1,4 @@
- class GistService
+ class Github::CreateGistService
 
   STATUS_CREATED = 201;
 
@@ -8,12 +8,23 @@
     @client = client ||  Octokit::Client.new(:access_token => ENV['ACCESS_TOKEN'])
   end
 
-  def create_gist
-    @client.create_gist(gist_params)
+  def call
+    result = @client.create_gist(gist_params)
+    @id = result.id
+    @url = result.url
+    self
+  end
+
+  def id
+    @id
+  end
+
+  def url
+    @url
   end
 
   def success?
-    @client.last_response.status == 201
+    @client.last_response.status == STATUS_CREATED
   end
 
   private
