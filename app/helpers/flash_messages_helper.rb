@@ -1,25 +1,11 @@
 module FlashMessagesHelper
-  def flash_message
-    first_div second_div paragraph
-  end
+  CLASSES = {
+    alert: 'bg-warning text-dark',
+    notice: 'bg-success text-light',
+    notice_url: 'bg-success text-light',
+  }.freeze
 
-  private
-
-  def first_div(content)
-    tag.div content, class: 'row text-right mt-3'
-  end
-
-  def second_div(content)
-    tag.div content, class: 'col col-md-12'
-  end
-
-  def paragraph
-    if flash[:alert]
-      tag.p flash[:alert], class: 'bg-warning text-dark flash border border-primary'.html_safe
-    elsif flash[:notice]
-      tag.p flash[:notice], class: 'bg-success text-light flash border border-primary'.html_safe
-    elsif flash[:notice_url]
-      tag.p flash[:notice_url].html_safe, class: 'bg-success text-light flash border border-primary'.html_safe
-    end
+  def flash_message(type)
+    tag.p flash[type].html_safe, class: "#{CLASSES[type]} flash border border-primary'".html_safe if flash[type]
   end
 end

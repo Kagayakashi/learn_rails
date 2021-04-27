@@ -1,1 +1,7 @@
-<%= flash_message %>
+<div class="row text-right mt-3">
+  <div class="col col-md-12">
+    <%= flash_message(:alert) %>
+    <%= flash_message(:notice) %>
+    <%= flash_message(:notice_url) %>
+  </div>
+</div>
