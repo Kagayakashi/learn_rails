@@ -8,10 +8,8 @@ module ApplicationHelper
     link_to link_name, "https://github.com/#{author}/#{repo}", rel: 'nofollow', target: :_blank
   end
 
-  def flash_bootstrap_class(key)
-    case key
-    when 'alert' then 'bg-warning text-dark'
-    when 'notice' then 'bg-success text-light'
-    end
+  def link_to_gist(author, hash, link_name)
+    link_to link_name, "https://gist.github.com/#{author}/#{hash}", rel: 'nofollow', target: :_blank,
+      class: 'list-group-item list-group-item-action'
   end
 end

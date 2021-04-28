@@ -1,4 +1,8 @@
 en:
+  services:
+    gist:
+      question_about: "Question about %{test} из LearnRails."
+      file_name: "learn-rails-question.txt"
   helpers:
     submit:
       category:
@@ -48,6 +52,9 @@ en:
           passed: "Test passed!"
           not_passed: "Test not passed!"
   admin:
+    gists:
+      index:
+        header: "Github gist list"
     categories:
       index:
         header: "Category list"
@@ -111,8 +118,11 @@ en:
       button_back: "Back"
     show:
       button_next: "Next"
-    gist:
-      success: "Gist was sucessfully saved!"
+      gist_question: "Create gist for question"
+  gists:
+    create:
+      created: "Gist"
+      success: "%{gist} was sucessfully saved!"
       failure: "Failed to save gist."
   shared:
     errors:
@@ -127,6 +137,8 @@ en:
       project_description: "- questionnaire testing, conducting tests to test your knowledge."
       school: 'Study project in the online school "Thinknetica"'
     header:
+      gist_list: "Gist list"
+      github_gist_list: "Gist list from Github"
       admin: "Admin panel"
       mailer: "Mailer List"
       welcome: "Welcome"

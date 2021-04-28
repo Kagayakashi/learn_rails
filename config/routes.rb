@@ -10,10 +10,10 @@ Rails.application.routes.draw do
     }
 
   resources :categories, only: %i[show index]
-  resources :test_passages, only: %i[show update] do
+  resources :test_passages, only: %i[show update], shallow: true do
+    resources :gists, only: %i[create]
     member do
       get :result
-      post :gist
     end
   end
 
@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
+    resources :gists, only: %i[index]
     resources :categories, shallow: true do
       resources :tests, except: %i[index], shallow: true do
         resources :questions, except: %i[index], shallow: true do
@@ -33,6 +34,6 @@ Rails.application.routes.draw do
     end
     root to: 'categories#index'
   end
-  
+
   root to: 'categories#index'
 end
