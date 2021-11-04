@@ -7,8 +7,12 @@
 </div>
 
 <div class="test-list">
-  <h4><%= t('.tests') %></h4>
-  <ul>
+  <h4 id="sort-by-title" class="sort-by-title pointer">
+    <%= t('.tests') %>
+    <%= octicon 'arrow-up', class: 'text-success d-none' %>
+    <%= octicon 'arrow-down', class: 'text-success d-none' %>
+  </h4>
+  <ul class="list">
     <%= render @category.tests %>
   </ul>
 </div>

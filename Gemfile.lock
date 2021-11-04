@@ -133,6 +133,12 @@ GEM
       racc (~> 1.4)
     nokogiri (1.11.3-x86-mingw32)
       racc (~> 1.4)
+    octicons (13.0.0)
+      nokogiri (>= 1.6.3.1)
+    octicons_helper (13.0.0)
+      actionview
+      octicons (= 13.0.0)
+      railties
     octokit (4.20.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -270,10 +276,10 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   dotenv-rails
-  faraday
   jbuilder (~> 2.7)
   letter_opener
   listen (~> 3.2)
+  octicons_helper
   octokit (~> 4.0)
   pg
   puma (~> 4.1)

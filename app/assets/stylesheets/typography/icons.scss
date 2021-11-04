@@ -1,0 +1,13 @@
+.octikon {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor
+}
+
+.password-success, .password-confirmation-success {
+  background-color: green;
+}
+
+.password-failed, .password-confirmation-failed {
+  background-color: red;
+}
