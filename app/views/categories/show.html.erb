@@ -1,8 +1,16 @@
-<h1><%= @category.title %></h1>
-<h2><%= t('.tests') %></h2>
+<div class="info-block">
+  <h4><%= @category.title %></h4>
+</div>
 
-<div class="btn-group-vertical">
-  <%= render @category.tests %>
+<div class="test-list">
+  <h4 id="sort-by-title" class="sort-by-title pointer">
+    <%= t('.tests') %>
+    <%= octicon 'arrow-up', class: 'text-success d-none' %>
+    <%= octicon 'arrow-down', class: 'text-success d-none' %>
+  </h4>
+  <ul class="list">
+    <%= render @category.tests %>
+  </ul>
 </div>
 
 <div class="button-back mt-1">
