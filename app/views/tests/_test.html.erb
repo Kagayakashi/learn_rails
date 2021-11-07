@@ -1,3 +1,5 @@
-<li>
-  <%= link_to test.title, start_test_path(test) %>
-</li>
+<% if test.questions? %>
+  <li>
+    <%= link_to test.title, start_test_path(test), method: :post %>
+  </li>
+<% end %>

@@ -6,6 +6,8 @@
   <%= link_to t('.new_test'), new_admin_category_test_path(@category) %><br>
 </div>
 
+<%= render 'shared/errors', resource: @test %>
+
 <div class="test-list">
   <h4 id="sort-by-title" class="sort-by-title pointer">
     <%= t('.tests') %>

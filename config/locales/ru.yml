@@ -75,9 +75,12 @@ ru:
       test:
         questions: "Вопросы"
         button_delete: "Удалить"
+        button_edit: "Изменить"
         confirm_delete: "Вы уверены?"
       form:
         button_back: "Назад"
+      form_inline:
+        submit: "Сохранить"
       show:
         button_back: "Назад"
         button_edit: "Изменить test"
