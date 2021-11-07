@@ -1,6 +1,12 @@
 <li>
-  <%= link_to test.title, admin_test_path(test) %>
+  <%= link_to test.title, admin_test_path(test),
+    class: 'admin-test-title',
+    data: { test_id: test.id } %>
+  <%= render 'admin/tests/form_inline', test: test == @test ? @test : test %>
   <span><%= t('.questions') %>: <%= test.questions.count %></span> |
+  <%= link_to t('.button_edit'), edit_admin_test_path(test),
+    data: { test_id: test.id },
+    class: 'form-inline-link'%>
   <%= link_to t('.button_delete'), admin_test_path(test),
     method: :delete,
     data: { confirm: t('.confirm_delete') } %>

@@ -1,5 +1,6 @@
 class Admin::TestsController < Admin::BaseController
   before_action :authenticate_user!
+  before_action :find_tests, only: %i[index update_inline]
   before_action :find_test, except: %i[new create]
   before_action :find_category, only: %i[new create]
 
@@ -18,6 +19,14 @@ class Admin::TestsController < Admin::BaseController
       render 'edit'
     end
   end
+  
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_category_path(@category)
+    else
+      render 'admin/categories/show', category: @category, test: @test
+    end
+  end
 
   def new
     @test = @category.tests.new
@@ -34,7 +43,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def destroy
-    @category = @test.category;
     @test.destroy
     redirect_to admin_category_path(@category)
   end
@@ -47,6 +55,11 @@ class Admin::TestsController < Admin::BaseController
 
   def find_test
     @test = Test.find(params[:id])
+    @category = @test.category
+  end
+
+  def find_tests
+    @tests = Test.all
   end
 
   def find_category
