@@ -5,3 +5,16 @@
 .result_good {
   color: green;
 }
+
+#progress_bar_root {
+  width: 100%;
+  background-color: grey;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+#progress_bar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
+}

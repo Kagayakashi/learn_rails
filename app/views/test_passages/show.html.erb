@@ -4,12 +4,21 @@
     <%= content_tag :h1, @test_passage.test.title %>
     <%= content_tag :h3, questions_amount(@test_passage) %>
 
+    <%= content_tag :div, id:'progress_bar_root' do %>
+      <%= content_tag :div, id:'progress_bar',
+        data: {
+          current: @test_passage.current_question_number,
+          amount: @test_passage.test.questions.count
+        } do %>
+      <% end %>
+    <% end %>
+
     <div class="card border-primary">
       <div class="card-body">
         <p>
           <%= @test_passage.current_question.body %>
         </p>
-        
+
         <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
           <div class="form-group">
             <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>

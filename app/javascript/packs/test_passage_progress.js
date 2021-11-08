@@ -1,15 +1,14 @@
 document.addEventListener('turbolinks:load', function(){
-  console.log('Запуск')
-
-  var full_progress = 100
-  var almost_full = 99
-  var elem = document.getElementById("progress_bar")
-  var current = elem.dataset.current
-  var amount = elem.dataset.amount
-
-  var progress = (full_progress / amount) * current
-  if(progress == almost_full) {
-    progress = full_progress
-  } 
-  elem.style.width = progress + "%"
+  const full_progress = 100
+  const almost_full = 99
+  let elem = document.getElementById("progress_bar")
+  if(elem) {
+    const current = elem.dataset.current
+    const amount = elem.dataset.amount
+    const progress = (full_progress / amount) * current
+    if(progress == almost_full) {
+      progress = full_progress
+    } 
+    elem.style.width = progress + "%"
+  }
 })
