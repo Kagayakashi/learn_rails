@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  default_url_options :host => "vo-learn-rails.herokuapp.com"
+
   devise_for :users, path: 'auth',
     path_names: {
       sign_in: 'login',
