@@ -152,3 +152,7 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы завершили выполнение теста!"
+  errors:
+    messages:
+      not_saved:
+        few: "Обнаружены %{count} ошибки"
