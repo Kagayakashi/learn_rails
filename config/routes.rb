@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'feedbacks/index'
   default_url_options :host => "vo-learn-rails.herokuapp.com"
 
   devise_for :users, path: 'auth',
