@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'feedbacks/index'
   default_url_options :host => "vo-learn-rails.herokuapp.com"
 
   devise_for :users, path: 'auth',
@@ -12,6 +10,8 @@ Rails.application.routes.draw do
       unlock: 'unblock',
       sign_up: 'register',
     }
+
+  resources :feedbacks, only: %i[new create], shallow: true
 
   resources :categories, only: %i[show index]
   resources :test_passages, only: %i[show update], shallow: true do
