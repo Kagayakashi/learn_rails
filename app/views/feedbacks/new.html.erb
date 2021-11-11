@@ -1,0 +1,22 @@
+<%= form_with model: @feedback, local: true do |form| %>
+  <%= render 'shared/errors', resource: @feedback %>
+
+  <p>
+    <%= label(:name, :name) %>
+    <%= form.text_field :name, placeholder: t('.placeholder_name'), class: 'form-control', required: true %>
+  </p>
+
+  <p>
+    <%= label(:email, :email) %>
+    <%= form.email_field :email, placeholder: t('.placeholder_email'), class: 'form-control', required: true %>
+  </p>
+
+  <p>
+    <%= label(:message, :message) %>
+    <%= form.text_area :message, placeholder: t('.placeholder_message'), class: 'form-control', required: true %>
+  </p>
+
+  <p>
+    <%= form.submit t('.submit') %>
+  </p>
+<% end %>

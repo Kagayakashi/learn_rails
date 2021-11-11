@@ -1,4 +1,10 @@
 en:
+  feedbacks:
+    new:
+      submit: "Send"
+      placeholder_name: "Your name"
+      placeholder_email: "Email"
+      placeholder_message: "Text"
   services:
     gist:
       question_about: "Question about %{test} из LearnRails."
@@ -142,6 +148,7 @@ en:
       admin: "Admin panel"
       mailer: "Mailer List"
       welcome: "Welcome"
+      feedback: "Send Feedback"
     auth:
       logout: "Logout"
   tests_mailer:

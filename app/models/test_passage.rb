@@ -8,6 +8,7 @@ class TestPassage < ApplicationRecord
   MINIMUM_GOOD_RESULT = 85
 
   def accept!(answer_ids)
+    return if answer_ids.blank?
     self.correct_questions += 1 if correct_answer?(answer_ids)
     self.current_question = next_question
     save!

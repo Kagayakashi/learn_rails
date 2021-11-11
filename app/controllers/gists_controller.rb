@@ -8,7 +8,7 @@ class GistsController < ApplicationController
       current_user.gists.create!(question: @test_passage.current_question, hash_id: result.id)
 
       { notice_url: t('.success', gist: view_context.link_to(t('.created'), result.url,
-        class: 'text-light font-weight-bold')) }
+        class: 'text-light font-weight-bold', target: "_blank")) }
     else
       { alert: t('.failure') }
     end
