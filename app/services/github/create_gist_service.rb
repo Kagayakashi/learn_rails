@@ -18,13 +18,14 @@ module Github
 
     def call
       result = @client.create_gist(gist_params)
-      CreatedGist.new(result.id, set_kaga_url(result.id), @client.last_response.status)
+      CreatedGist.new(result.id, set_gist_url(result.id), @client.last_response.status)
     end
 
     private
 
-    def set_kaga_url(hash)
-      "https://gist.github.com/kagayakashi/#{hash}"
+    def set_gist_url(hash)
+      username = ENV['GIST_USERNAME']
+      "https://gist.github.com/#{username}/#{hash}"
     end
 
     def gist_params
