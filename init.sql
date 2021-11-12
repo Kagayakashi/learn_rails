@@ -1,0 +1,2 @@
+CREATE USER learnrails;
+ALTER USER learnrails WITH SUPERUSER;
