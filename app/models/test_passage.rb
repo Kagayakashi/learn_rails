@@ -21,11 +21,11 @@ class TestPassage < ApplicationRecord
   def current_question_number
     test.questions.order(:id).where('id <= ?', self.current_question.id).count
   end
-  
+
   def correct_answers_percent
     (self.correct_questions.to_f / test.questions.count.to_f * 100).to_i
   end
-  
+
   def test_result_good?
     correct_answers_percent >= MINIMUM_GOOD_RESULT
   end

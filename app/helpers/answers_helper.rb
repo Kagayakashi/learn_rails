@@ -1,6 +1,6 @@
 module AnswersHelper
   def answer_header(answer:)
-    text = 
+    text =
       if answer.persisted?
         I18n.t('helpers.custom.header.answer.editing')
       else

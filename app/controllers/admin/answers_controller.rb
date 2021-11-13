@@ -28,10 +28,10 @@ class Admin::AnswersController < Admin::BaseController
       render 'edit'
     end
   end
- 
+
   def destroy
     @answer.destroy
- 
+
     redirect_to admin_question_path(@answer.question)
   end
 

@@ -5,13 +5,13 @@ class GistsController < ApplicationController
     result = Github::CreateGistService.new(@test_passage.current_question).call
 
     flash_options = if result.success?
-      current_user.gists.create!(question: @test_passage.current_question, hash_id: result.id)
+                      current_user.gists.create!(question: @test_passage.current_question, hash_id: result.id)
 
-      { notice_url: t('.success', gist: view_context.link_to(t('.created'), result.url,
-        class: 'text-light font-weight-bold', target: "_blank")) }
-    else
-      { alert: t('.failure') }
-    end
+                      { notice_url: t('.success', gist: view_context.link_to(t('.created'), result.url,
+                                                                             class: 'text-light font-weight-bold', target: "_blank")) }
+                    else
+                      { alert: t('.failure') }
+                    end
 
     redirect_to @test_passage, flash_options
   end

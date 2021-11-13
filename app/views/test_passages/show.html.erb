@@ -4,12 +4,12 @@
     <%= content_tag :h1, @test_passage.test.title %>
     <%= content_tag :h3, questions_amount(@test_passage) %>
 
-    <%= content_tag :div, id:'progress_bar_root' do %>
-      <%= content_tag :div, id:'progress_bar',
-        data: {
-          current: @test_passage.current_question_number,
-          amount: @test_passage.test.questions.count
-        } do %>
+    <%= content_tag :div, id: 'progress_bar_root' do %>
+      <%= content_tag :div, id: 'progress_bar',
+                      data: {
+                        current: @test_passage.current_question_number,
+                        amount: @test_passage.test.questions.count
+                      } do %>
       <% end %>
     <% end %>
 
@@ -24,12 +24,12 @@
             <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
               <div class="form-check">
                 <%= b.check_box id: "answer_ids_#{b.object.id}", class: 'form-check-input' %>
-                <%= b.label class: 'form-check-label'%>
+                <%= b.label class: 'form-check-label' %>
               </div>
             <% end %>
 
             <%= link_to t('.gist_question'), test_passage_gists_path(@test_passage), method: :post,
-              class: 'btn btn-secondary mt-1' %>
+                        class: 'btn btn-secondary mt-1' %>
             <%= form.submit t('.button_next'), class: 'btn btn-primary mt-1' %>
           </div>
         <% end %>

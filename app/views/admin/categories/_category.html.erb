@@ -1,6 +1,6 @@
 <li>
   <%= link_to category.title, admin_category_path(category) %> |
   <%= link_to t('.button_delete'), admin_category_path(category),
-    method: :delete,
-    data: { confirm: t('.confirm_delete') } %>
+              method: :delete,
+              data: { confirm: t('.confirm_delete') } %>
 </li>

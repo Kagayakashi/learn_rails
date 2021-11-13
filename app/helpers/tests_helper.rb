@@ -9,13 +9,13 @@ module TestsHelper
   def test_level(test)
     TEST_LEVELS[test.level] || I18n.t('helpers.custom.label.test.level_hard')
   end
-  
+
   def test_header(test:)
     text = if test.persisted?
-        I18n.t('helpers.custom.header.test.editing')
-      else
-        I18n.t('helpers.custom.header.test.creating')
-      end
+             I18n.t('helpers.custom.header.test.editing')
+           else
+             I18n.t('helpers.custom.header.test.creating')
+           end
     content_tag :h1, text
   end
 end

@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
-  default_url_options :host => "vo-learn-rails.herokuapp.com"
+  default_url_options :host => "localhost:3000"
 
   devise_for :users, path: 'auth',
-    path_names: {
-      sign_in: 'login',
-      sign_out: 'logout',
-      password: 'secret',
-      confirmation: 'verification',
-      unlock: 'unblock',
-      sign_up: 'register',
-    }
+             path_names: {
+               sign_in: 'login',
+               sign_out: 'logout',
+               password: 'secret',
+               confirmation: 'verification',
+               unlock: 'unblock',
+               sign_up: 'register',
+             }
 
   resources :feedbacks, only: %i[new create], shallow: true
 
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       post :start
     end
   end
-  
+
   namespace :admin do
     resources :gists, only: %i[index]
     resources :categories, shallow: true do

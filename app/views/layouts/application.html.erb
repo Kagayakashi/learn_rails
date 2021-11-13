@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>LearnRails</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>LearnRails</title>
 
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <section class="container-fluid root">
-      <header>
-        <%= render 'shared/header' %>
-        <%= render 'shared/flash' %>
-      </header>
+<body>
+<section class="container-fluid root">
+  <header>
+    <%= render 'shared/header' %>
+    <%= render 'shared/flash' %>
+  </header>
 
-      <main class="content">
-        <%= yield %>
-      </main>
-    
-      <footer class="footer font-small bg-dark pt-4">
-        <%= render 'shared/footer' %>
-      </footer>
-    </section>
-  </body>
+  <main class="content">
+    <%= yield %>
+  </main>
+
+  <footer class="footer font-small bg-dark pt-4">
+    <%= render 'shared/footer' %>
+  </footer>
+</section>
+</body>
 </html>

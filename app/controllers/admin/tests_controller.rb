@@ -19,7 +19,7 @@ class Admin::TestsController < Admin::BaseController
       render 'edit'
     end
   end
-  
+
   def update_inline
     if @test.update(test_params)
       redirect_to admin_category_path(@category)
@@ -65,7 +65,7 @@ class Admin::TestsController < Admin::BaseController
   def find_category
     @category = Category.find(params[:category_id])
   end
-  
+
   def rescue_with_test_not_found
     render plain: 'Test was not found!'
   end

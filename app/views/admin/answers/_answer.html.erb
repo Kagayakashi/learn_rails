@@ -2,6 +2,6 @@
   <%= answer.body %> |
   <%= link_to t('.button_edit'), edit_admin_answer_path(answer) %> |
   <%= link_to t('.button_delete'), admin_answer_path(answer),
-    method: :delete,
-    data: { confirm: t('.confirm_delete') } %>
+              method: :delete,
+              data: { confirm: t('.confirm_delete') } %>
 </li>

@@ -1,6 +1,6 @@
 <li>
   <%= link_to question.body, admin_question_path(question) %> |
   <%= link_to t('.button_delete'), admin_question_path(question),
-    method: :delete,
-    data: { confirm: t('.confirm_delete') } %>
+              method: :delete,
+              data: { confirm: t('.confirm_delete') } %>
 </li>

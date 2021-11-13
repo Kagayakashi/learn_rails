@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 # Users
 user = User.new(username: 'user', password: 'user', email: 'user@example.com')
 admin = User.new(username: 'admin', password: 'admin', admin: true, email: 'admin@example.com')
@@ -29,19 +28,19 @@ question_bpmn_message_event = Question.new(body: 'Каким элементом 
 question_bpmn_message_event.save!
 # A.1
 Answer.create!([
-  { body: 'Событие', correct: true, question: question_bpmn_message_event},
-  { body: 'Логический оператор', question: question_bpmn_message_event },
-  { body: 'Задача', question: question_bpmn_message_event },
-])
+                 { body: 'Событие', correct: true, question: question_bpmn_message_event },
+                 { body: 'Логический оператор', question: question_bpmn_message_event },
+                 { body: 'Задача', question: question_bpmn_message_event },
+               ])
 
 # Q.2
 question_bpmn_stop_event = Question.new(body: 'Как обозначить окончание бизнес-процесса?', test: test_bpmn)
 question_bpmn_stop_event.save!
 # A.2
 Answer.create!([
-  { body: 'Событие с одной тонкой линией', question: question_bpmn_stop_event },
-  { body: 'Событие с двумя толнкими линиями', question: question_bpmn_stop_event },
-  { body: 'Событие с толстой линией', correct: true, question: question_bpmn_stop_event },
-])
+                 { body: 'Событие с одной тонкой линией', question: question_bpmn_stop_event },
+                 { body: 'Событие с двумя толнкими линиями', question: question_bpmn_stop_event },
+                 { body: 'Событие с толстой линией', correct: true, question: question_bpmn_stop_event },
+               ])
 
 
