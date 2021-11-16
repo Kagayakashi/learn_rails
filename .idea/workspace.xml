@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="965a6970-9939-4b8a-92be-e30b8e149c1e" name="Changes" comment="Update docker config with RubyMine">
-      <change beforePath="$PROJECT_DIR$/.idea/learn_rails.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/learn_rails.iml" afterDir="false" />
+    <list default="true" id="965a6970-9939-4b8a-92be-e30b8e149c1e" name="Changes" comment="Добавил модель и контроллер Наград. Настроил представление список наград у админа. Настроил представление создание награды. Сделал список типов правил.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/admin/rewards_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/rewards_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/test_passages_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/test_passages_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/issued_reward.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/issued_reward.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/reward.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/reward.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/test_passage.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/test_passage.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/shared/_header.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_header.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/locales/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/en.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/locales/ru.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/ru.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20211115204806_create_issued_rewards.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20211115204806_create_issued_rewards.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -244,7 +249,7 @@
       <workItem from="1636837384667" duration="1824000" />
       <workItem from="1636839791628" duration="413000" />
       <workItem from="1636840243091" duration="6163000" />
-      <workItem from="1637004376395" duration="9280000" />
+      <workItem from="1637004376395" duration="18683000" />
     </task>
     <task id="LOCAL-00001" summary="Update docker config with RubyMine">
       <created>1636844164775</created>
@@ -253,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636844164775</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Добавил модель и контроллер Наград. Настроил представление список наград у админа. Настроил представление создание награды. Сделал список типов правил.">
+      <created>1637014776196</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1637014776196</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +289,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Update docker config with RubyMine" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update docker config with RubyMine" />
+    <MESSAGE value="Добавил модель и контроллер Наград. Настроил представление список наград у админа. Настроил представление создание награды. Сделал список типов правил." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил модель и контроллер Наград. Настроил представление список наград у админа. Настроил представление создание награды. Сделал список типов правил." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/learn_rails@Development__learn_rails.rcov" NAME="Development: learn_rails Coverage Results" MODIFIED="1637014669580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="learn_rails" />

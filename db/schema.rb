@@ -49,12 +49,11 @@ ActiveRecord::Schema.define(version: 2021_11_15_204806) do
   end
 
   create_table "issued_rewards", force: :cascade do |t|
-    t.string "test"
     t.bigint "user_id", null: false
-    t.bigint "test_id", null: false
+    t.bigint "reward_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["test_id"], name: "index_issued_rewards_on_test_id"
+    t.index ["reward_id"], name: "index_issued_rewards_on_reward_id"
     t.index ["user_id"], name: "index_issued_rewards_on_user_id"
   end
 
@@ -126,7 +125,7 @@ ActiveRecord::Schema.define(version: 2021_11_15_204806) do
   add_foreign_key "answers", "questions"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
-  add_foreign_key "issued_rewards", "tests"
+  add_foreign_key "issued_rewards", "rewards"
   add_foreign_key "issued_rewards", "users"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_passages", "questions"

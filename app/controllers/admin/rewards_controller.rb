@@ -13,7 +13,7 @@ class Admin::RewardsController < ApplicationController
   end
 
   def create
-    @reward = Reward.build(reward_params)
+    @reward = Reward.create(reward_params)
     if @reward.save
       redirect_to admin_rewards_path
     else
@@ -25,11 +25,16 @@ class Admin::RewardsController < ApplicationController
   end
 
   def update
-
+    if @reward.update(reward_params)
+      redirect_to admin_rewards_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
     @reward.destroy
+    redirect_to admin_rewards_path
   end
 
   private

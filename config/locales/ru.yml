@@ -168,6 +168,7 @@ ru:
       welcome: "Добро пожаловать"
       feedback: "Обратная связь"
       reward_list: "Список наград"
+      my_rewards: "Мои награды"
     auth:
       logout: "Выйти"
   tests_mailer:
@@ -177,3 +178,6 @@ ru:
     messages:
       not_saved:
         few: "Обнаружены %{count} ошибки"
+  rewards:
+    index:
+      header: "Мои награды"

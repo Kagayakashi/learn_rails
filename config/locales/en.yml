@@ -163,8 +163,12 @@ en:
       welcome: "Welcome"
       feedback: "Send Feedback"
       reward_list: "Reward list"
+      my_rewards: "My rewards"
     auth:
       logout: "Logout"
   tests_mailer:
     completed_test:
       subject: "You just have completed test!"
+  rewards:
+    index:
+      header: "My rewards"
