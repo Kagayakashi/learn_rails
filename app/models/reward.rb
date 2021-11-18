@@ -20,5 +20,4 @@ class Reward < ApplicationRecord
   validates :name, presence: true
   validates :image_url, presence: true
   validates :rule_type, presence: true
-  validates :rule_value, presence: true, uniqueness: { scope: %i[rule_type] }
 end

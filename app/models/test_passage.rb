@@ -26,10 +26,6 @@ class TestPassage < ApplicationRecord
     (self.correct_questions.to_f / test.questions.count.to_f * 100).to_i
   end
 
-  def all_correct?
-    self.correct_questions == test.questions.count
-  end
-
   def test_result_good?
     correct_answers_percent >= MINIMUM_GOOD_RESULT
   end

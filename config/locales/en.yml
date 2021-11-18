@@ -172,3 +172,6 @@ en:
   rewards:
     index:
       header: "My rewards"
+  issued_rewards:
+    index:
+      header: "My rewards"

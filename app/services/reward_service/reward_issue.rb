@@ -5,33 +5,25 @@ module RewardService
     RULE_TYPE_BY_CATEGORY = :completed_all_tests_by_category.freeze
 
     class << self
-      def issue(user:, test:)
-        user = user
-        test = test
+      def issue(test_passage)
+        @@test_passage = test_passage
 
-=begin
-      Reward.all.each do |reward|
-        first_try? reward
-        by_level? reward
-        by_category? reward
-        end
-=end
-        RewardIssue.first_try? user: user, test: test
+        RewardIssue.first_try?
       end
 
-      def first_try?(user:, test:)
-        # TODO Доделать поиск награды.
-        reward = Reward.where(rule_type: RULE_TYPE_FIRST_TRY.to_s, rule_value: test.title)
+      def first_try?
+        return if TestPassage.where(user: @@test_passage.user, test: @@test_passage.test).count != 1
+        reward = Reward.where(rule_type: RULE_TYPE_FIRST_TRY.to_s).first
         return if reward.nil?
-        IssuedReward.create(user: user, reward: reward) if TestPassage.where(user: user, test: test).count.nonzero?
+        @@test_passage.user.issued_rewards.build(reward: reward).save
       end
 
       def by_level?(reward)
-        false
+        # TODO
       end
 
       def by_category?(reward)
-        false
+        # TODO
       end
     end
   end

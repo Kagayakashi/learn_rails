@@ -40,5 +40,8 @@
 yarn-debug.log*
 .yarn-integrity
 
-# Env
+# Ignore env file
 .env
+
+# Ignore RubyMine ide files
+.idea

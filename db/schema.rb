@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(version: 2021_11_15_204806) do
     t.string "name"
     t.string "image_url"
     t.string "rule_type"
-    t.string "rule_value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

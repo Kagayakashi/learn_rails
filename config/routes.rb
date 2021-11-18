@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'issued_rewards/index'
   default_url_options :host => "localhost:3000"
 
   devise_for :users, path: 'auth',
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
              }
 
   resources :feedbacks, only: %i[new create], shallow: true
-  resources :rewards, only: %i[index], shallow: true
+  resources :issued_rewards, only: %i[index], shallow: true
   resources :categories, only: %i[show index], shallow: true
   resources :test_passages, only: %i[show update], shallow: true do
     resources :gists, only: %i[create], shallow: true

@@ -1,5 +1,6 @@
 <li>
-  <%= reward.name %> |
+  <%= image_tag reward.image_url, height: 50 %>
+  <%= reward.name %>
   <%= link_to t('.button_edit'), edit_admin_reward_path(reward) %> |
   <%= link_to t('.button_delete'), admin_reward_path(reward),
               method: :delete,

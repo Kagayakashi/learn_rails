@@ -181,3 +181,6 @@ ru:
   rewards:
     index:
       header: "Мои награды"
+  issued_rewards:
+    index:
+      header: "Мои награды"

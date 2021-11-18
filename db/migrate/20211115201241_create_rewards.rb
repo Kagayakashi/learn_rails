@@ -4,7 +4,6 @@ class CreateRewards < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :image_url
       t.string :rule_type
-      t.string :rule_value
 
       t.timestamps
     end
