@@ -1,4 +1,4 @@
-class Admin::RewardsController < ApplicationController
+class Admin::RewardsController < Admin::BaseController
   before_action :authenticate_user!
   before_action :find_reward, only: %i[edit update destroy]
 
@@ -40,7 +40,7 @@ class Admin::RewardsController < ApplicationController
   private
 
   def reward_params
-    params.require(:reward).permit(:name, :image_url, :rule_type, :rule_value)
+    params.require(:reward).permit(:name, :image_url, :rule_type)
   end
 
   def find_reward

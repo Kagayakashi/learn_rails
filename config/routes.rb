@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rewards/index'
   get 'issued_rewards/index'
   default_url_options :host => "localhost:3000"
 

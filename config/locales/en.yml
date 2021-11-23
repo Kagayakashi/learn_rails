@@ -164,6 +164,7 @@ en:
       feedback: "Send Feedback"
       reward_list: "Reward list"
       my_rewards: "My rewards"
+      reward_panel: "Reward panel"
     auth:
       logout: "Logout"
   tests_mailer:
@@ -175,3 +176,6 @@ en:
   issued_rewards:
     index:
       header: "My rewards"
+  first_try: "Completed test with first try"
+  by_level: "Completed all tests with same level"
+  by_category: "Completed all tests with same category"

@@ -1,17 +1,8 @@
 class Reward < ApplicationRecord
   RULES = [
-    {
-      :name => 'Выполнение теста с первой попытки',
-      :value => 'completed_test_first_try',
-    },
-    {
-      :name => 'Выполнение всех тестов определенного уровня',
-      :value => 'completed_all_tests_by_level',
-    },
-    {
-      :name => 'Выполнение всех тестов определенной категории',
-      :value => 'completed_all_tests_by_category',
-    },
+    { :name => I18n.t('first_try'), :value => 'completed_test_first_try' },
+    { :name => I18n.t('by_level'), :value => 'completed_all_tests_by_level' },
+    { :name => I18n.t('by_category'), :value => 'completed_all_tests_by_category' },
   ].freeze
 
   has_many :issued_rewards, dependent: :destroy

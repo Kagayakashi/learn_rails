@@ -1,57 +1,44 @@
 module RewardService
   class RewardIssue
-    RULE_TYPE_FIRST_TRY = :completed_test_first_try.freeze
-    RULE_TYPE_BY_LEVEL = :completed_all_tests_by_level.freeze
-    RULE_TYPE_BY_CATEGORY = :completed_all_tests_by_category.freeze
 
-    class << self
-      def issue(test_passage)
-        RewardIssue.first_try?(test_passage)
-        RewardIssue.by_level?(test_passage)
-        RewardIssue.by_category?(test_passage)
+    def initialize(test_passage)
+      @user = test_passage.user
+      @test = test_passage.test
+    end
+
+    def issue_rewards
+      Reward.all.each do |reward|
+        issue_reward(reward) if send("#{reward.rule_type}?")
       end
+    end
 
-      def first_try?(test_passage)
-        return if TestPassage.where(user: test_passage.user, test: test_passage.test).count != 1
+    private
+    def completed_test_first_try?
+      TestPassage.where(user: @user, test: @test).count == 1
+    end
 
-        reward = Reward.where(rule_type: RULE_TYPE_FIRST_TRY.to_s).first
-        return if reward.nil?
-        test_passage.user.issued_rewards.build(reward: reward).save
-      end
+    def completed_all_tests_by_level?
+      completed_tests_by_level = @user.tests.where(:level => @test.level).uniq
+      tests_by_level = Test.where(level: @test.level)
+      completed_tests_by_level.count == tests_by_level.count
+    end
 
-      def by_level?(test_passage)
-        test = test_passage.test
-        completed_tests_by_level = Test
-                                     .where(level: test.level)
-                                     .joins(:test_passages)
-                                     .where(test_passages: { user: test_passage.user })
-                                     .uniq
+    def completed_all_tests_by_category?
+      completed_tests_by_category = Test
+                                      .joins(:category)
+                                      .where(categories: { title: @test.category.title })
+                                      .joins(:test_passages)
+                                      .where(test_passages: { user: @user })
+                                      .uniq
+      tests_by_category = Test
+                            .joins(:category)
+                            .where(categories: { title: @test.category.title })
 
-        tests_by_level = Test.where(level: test.level)
+      completed_tests_by_category.count == tests_by_category.count
+    end
 
-        return if completed_tests_by_level.count != tests_by_level.count
-        reward = Reward.where(rule_type: RULE_TYPE_BY_LEVEL.to_s).first
-        return if reward.nil?
-        test_passage.user.issued_rewards.build(reward: reward).save
-      end
-
-      def by_category?(test_passage)
-        category = test_passage.test.category
-        completed_tests_by_category = Test
-                                        .joins(:category)
-                                        .where(categories: { title: category.title })
-                                        .joins(:test_passages)
-                                        .where(test_passages: { user: test_passage.user })
-                                        .uniq
-        tests_by_category = Test
-                              .joins(:category)
-                              .where(categories: { title: category.title })
-
-        return if completed_tests_by_category.count != tests_by_category.count
-        reward = Reward.where(rule_type: RULE_TYPE_BY_CATEGORY.to_s).first
-        return if reward.nil?
-        test_passage.user.issued_rewards.build(reward: reward).save
-      end
+    def issue_reward(reward)
+      @user.issued_rewards.build(reward: reward).save
     end
   end
 end
