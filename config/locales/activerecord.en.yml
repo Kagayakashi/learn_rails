@@ -7,3 +7,8 @@ en:
       test:
         level: "Difficult"
         author: "Author"
+      reward:
+        rules:
+          first_try: "Successfully completed test with first try"
+          by_level: "Successfully completed all tests by level"
+          by_category: "Successfully completed all tests by category"

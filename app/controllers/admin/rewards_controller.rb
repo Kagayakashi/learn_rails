@@ -13,7 +13,8 @@ class Admin::RewardsController < Admin::BaseController
   end
 
   def create
-    @reward = Reward.create(reward_params)
+    @reward = Reward.create(reward_params_except_rule_keys)
+    set_rule_key_attr
     if @reward.save
       redirect_to admin_rewards_path
     else
@@ -25,7 +26,8 @@ class Admin::RewardsController < Admin::BaseController
   end
 
   def update
-    if @reward.update(reward_params)
+    set_rule_key_attr
+    if @reward.update(reward_params_except_rule_keys)
       redirect_to admin_rewards_path
     else
       render 'edit'
@@ -40,7 +42,16 @@ class Admin::RewardsController < Admin::BaseController
   private
 
   def reward_params
-    params.require(:reward).permit(:name, :image_url, :rule_type)
+    params.require(:reward).permit(:name, :image_url, :rule_type, :first_try, :by_level, :by_category)
+  end
+
+  def reward_params_except_rule_keys
+    reward_params.except(:first_try, :by_level, :by_category)
+  end
+
+  def set_rule_key_attr
+    key = reward_params[reward_params[:rule_type]]
+    @reward.attributes = {:rule_key => key}
   end
 
   def find_reward

@@ -15,7 +15,22 @@
 
   <p>
     <%= f.label :rule_type %><br>
-    <%= f.select :rule_type, rules_to_select %>
+    <%= f.select :rule_type, Reward.human_enum_collection(:rules) %>
+  </p>
+
+  <p>
+    <%= f.label :test %><br>
+    <%= f.collection_select :first_try, Test.all, :id, :title %>
+  </p>
+
+  <p>
+    <%= f.label :level %><br>
+    <%= f.text_field :by_level %>
+  </p>
+
+  <p>
+    <%= f.label :category %><br>
+    <%= f.collection_select :by_category, Category.all, :id, :title %>
   </p>
 
   <p>

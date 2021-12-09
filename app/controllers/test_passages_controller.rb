@@ -11,7 +11,11 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept! params[:answer_ids]
 
-    if @test_passage.completed?
+    if @test_passage.finished?
+      @test_passage.finished = true
+      @test_passage.completed = true if @test_passage.test_result_good?
+      @test_passage.save
+
       reward_service = RewardService::RewardIssue.new(@test_passage)
       reward_service.issue_rewards
 

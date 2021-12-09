@@ -14,7 +14,7 @@ class TestPassage < ApplicationRecord
     save!
   end
 
-  def completed?
+  def finished?
     self.current_question.nil?
   end
 

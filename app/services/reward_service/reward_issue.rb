@@ -7,32 +7,38 @@ module RewardService
     end
 
     def issue_rewards
+      # Проверить все награды, можно ли их выдать
       Reward.all.each do |reward|
-        issue_reward(reward) if send("#{reward.rule_type}?")
+        issue_reward(reward) if send("#{reward.rule_type}?", reward.rule_key)
       end
     end
 
     private
-    def completed_test_first_try?
-      TestPassage.where(user: @user, test: @test).count == 1
+    def first_try?(key)
+      # Награда относится к текущему пройденому тесту?
+      return false if @test.id != key
+      @user.test_passages.where(test: @test, finished: true, completed: true).count == 1
     end
 
-    def completed_all_tests_by_level?
-      completed_tests_by_level = @user.tests.where(:level => @test.level).uniq
-      tests_by_level = Test.where(level: @test.level)
+    def by_level?(key)
+      completed_tests_by_level = @user.tests
+                                      .where(level: key, test_passages: { finished: true, completed: true })
+                                      .uniq
+      tests_by_level = Test.where(level: key)
+
+      return false if completed_tests_by_level.count.zero? or tests_by_level.count.zero?
+
       completed_tests_by_level.count == tests_by_level.count
     end
 
-    def completed_all_tests_by_category?
-      completed_tests_by_category = Test
-                                      .joins(:category)
-                                      .where(categories: { title: @test.category.title })
-                                      .joins(:test_passages)
-                                      .where(test_passages: { user: @user })
-                                      .uniq
-      tests_by_category = Test
-                            .joins(:category)
-                            .where(categories: { title: @test.category.title })
+    def by_category?(key)
+      completed_tests_by_category = @user.tests
+                                         .joins(:category)
+                                         .where(category: key, test_passages: { finished: true, completed: true })
+                                         .uniq
+      tests_by_category = Test.where(category: key)
+
+      return false if completed_tests_by_category.count.zero? or tests_by_category.count.zero?
 
       completed_tests_by_category.count == tests_by_category.count
     end
