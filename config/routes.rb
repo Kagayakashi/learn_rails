@@ -14,7 +14,6 @@ Rails.application.routes.draw do
              }
 
   resources :feedbacks, only: %i[new create], shallow: true
-  resources :issued_rewards, only: %i[index], shallow: true
   resources :categories, only: %i[show index], shallow: true
   resources :test_passages, only: %i[show update], shallow: true do
     resources :gists, only: %i[create], shallow: true

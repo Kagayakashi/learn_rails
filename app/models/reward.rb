@@ -1,5 +1,9 @@
 class Reward < ApplicationRecord
-  enum rules: [:first_try, :by_level, :by_category]
+  enum rules: {
+    first_try: 0,
+    by_level: 1,
+    by_category: 2
+  }.freeze
 
   has_many :issued_rewards, dependent: :destroy
   has_many :users, through: :issued_rewards

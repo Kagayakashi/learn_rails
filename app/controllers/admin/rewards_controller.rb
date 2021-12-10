@@ -27,7 +27,7 @@ class Admin::RewardsController < Admin::BaseController
 
   def update
     set_rule_key_attr
-    if @reward.update(reward_params_except_rule_keys)
+    if @reward.update(reward_params_filtered)
       redirect_to admin_rewards_path
     else
       render 'edit'
@@ -42,11 +42,11 @@ class Admin::RewardsController < Admin::BaseController
   private
 
   def reward_params
-    params.require(:reward).permit(:name, :image_url, :rule_type, :first_try, :by_level, :by_category)
+    params.require(:reward)
   end
 
-  def reward_params_except_rule_keys
-    reward_params.except(:first_try, :by_level, :by_category)
+  def reward_params_filtered
+    reward_params.permit(:name, :image_url, :rule_type)
   end
 
   def set_rule_key_attr

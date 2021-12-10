@@ -173,9 +173,11 @@ en:
   rewards:
     index:
       header: "My rewards"
+      header_rewards: "Available rewards"
   issued_rewards:
     index:
       header: "My rewards"
   first_try: "Completed test with first try"
   by_level: "Completed all tests with same level"
   by_category: "Completed all tests with same category"
+  header_issued: "Issued rewards"

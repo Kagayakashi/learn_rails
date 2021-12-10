@@ -182,9 +182,11 @@ ru:
   rewards:
     index:
       header: "Мои награды"
+      header_rewards: "Доступные награды"
   issued_rewards:
     index:
       header: "Мои награды"
   first_try: "Выполнение теста с первой попытки"
   by_level: "Выполнение всех тестов определенного уровня"
   by_category: "Выполнение всех тестов определенной категории"
+  header_issued: "Мои награды"
