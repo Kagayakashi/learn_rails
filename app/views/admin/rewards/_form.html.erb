@@ -1,0 +1,41 @@
+<%= reward_header reward: @reward %>
+
+<%= form_with model: [:admin, @reward], local: true do |f| %>
+  <%= render 'shared/errors', resource: @reward %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :image_url %><br>
+    <%= f.text_field :image_url %>
+  </p>
+
+  <p>
+    <%= f.label :rule_type %><br>
+    <%= f.select :rule_type, Reward.human_enum_collection(:rules) %>
+  </p>
+
+  <p>
+    <%= f.label :test %><br>
+    <%= f.collection_select :first_try, Test.all, :id, :title %>
+  </p>
+
+  <p>
+    <%= f.label :level %><br>
+    <%= f.text_field :by_level %>
+  </p>
+
+  <p>
+    <%= f.label :category %><br>
+    <%= f.collection_select :by_category, Category.all, :id, :title %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to t('.button_back'), :back %>

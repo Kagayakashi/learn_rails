@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'rewards/index'
+  get 'issued_rewards/index'
   default_url_options :host => "localhost:3000"
 
   devise_for :users, path: 'auth',
@@ -12,10 +14,9 @@ Rails.application.routes.draw do
              }
 
   resources :feedbacks, only: %i[new create], shallow: true
-
-  resources :categories, only: %i[show index]
+  resources :categories, only: %i[show index], shallow: true
   resources :test_passages, only: %i[show update], shallow: true do
-    resources :gists, only: %i[create]
+    resources :gists, only: %i[create], shallow: true
     member do
       get :result
     end
@@ -28,7 +29,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :gists, only: %i[index]
+    resources :gists, only: %i[index], shallow: true
+    resources :rewards, except: %i[show], shallow: true
     resources :categories, shallow: true do
       resources :tests, except: %i[index], shallow: true do
         patch :update_inline, on: :member

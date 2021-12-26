@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_10_201218) do
+ActiveRecord::Schema.define(version: 2021_12_09_203224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,12 +48,30 @@ ActiveRecord::Schema.define(version: 2021_11_10_201218) do
     t.index ["user_id"], name: "index_gists_on_user_id"
   end
 
+  create_table "issued_rewards", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "reward_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reward_id"], name: "index_issued_rewards_on_reward_id"
+    t.index ["user_id"], name: "index_issued_rewards_on_user_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "test_id"
     t.index ["test_id"], name: "index_questions_on_test_id"
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.string "rule_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "rule_key"
   end
 
   create_table "tables", force: :cascade do |t|
@@ -66,6 +84,8 @@ ActiveRecord::Schema.define(version: 2021_11_10_201218) do
     t.integer "correct_questions", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "finished"
+    t.boolean "completed"
     t.index ["question_id"], name: "index_test_passages_on_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
@@ -107,6 +127,8 @@ ActiveRecord::Schema.define(version: 2021_11_10_201218) do
   add_foreign_key "answers", "questions"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
+  add_foreign_key "issued_rewards", "rewards"
+  add_foreign_key "issued_rewards", "users"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_passages", "questions"
   add_foreign_key "test_passages", "tests"

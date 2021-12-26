@@ -48,6 +48,9 @@ ru:
         answer:
           editing: "Изменение ответа"
           creating: "Создание ответа"
+        reward:
+          editing: "Изменение"
+          creating: "Создание награды"
       label:
         test:
           level_easy: "Легкий"
@@ -114,6 +117,16 @@ ru:
         confirm_delete: "Вы уверены?"
       form:
         button_back: "Назад"
+    rewards:
+      reward:
+        button_edit: "Изменить"
+        button_delete: "Удалить"
+        confirm_delete: "Вы уверены?"
+      index:
+        header: "Награды"
+        new_reward: "Добавить награду"
+      form:
+        button_back: "Назад"
   categories:
     index:
       header: "Категории"
@@ -154,6 +167,9 @@ ru:
       mailer: "Почтовый список"
       welcome: "Добро пожаловать"
       feedback: "Обратная связь"
+      reward_list: "Список наград"
+      my_rewards: "Мои награды"
+      reward_panel: "Управление наградами"
     auth:
       logout: "Выйти"
   tests_mailer:
@@ -163,3 +179,14 @@ ru:
     messages:
       not_saved:
         few: "Обнаружены %{count} ошибки"
+  rewards:
+    index:
+      header: "Мои награды"
+      header_rewards: "Доступные награды"
+  issued_rewards:
+    index:
+      header: "Мои награды"
+  first_try: "Выполнение теста с первой попытки"
+  by_level: "Выполнение всех тестов определенного уровня"
+  by_category: "Выполнение всех тестов определенной категории"
+  header_issued: "Мои награды"

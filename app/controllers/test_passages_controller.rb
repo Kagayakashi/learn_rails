@@ -11,7 +11,14 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept! params[:answer_ids]
 
-    if @test_passage.completed?
+    if @test_passage.finished?
+      @test_passage.finished = true
+      @test_passage.completed = true if @test_passage.test_result_good?
+      @test_passage.save
+
+      reward_service = RewardService::RewardIssue.new(@test_passage)
+      reward_service.issue_rewards
+
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path @test_passage
     else
@@ -23,6 +30,5 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
-    @test_passage.user.id = current_user;
   end
 end

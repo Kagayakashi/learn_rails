@@ -1,0 +1,9 @@
+<h4><%= t('.header') %></h4>
+
+<div class="button-control">
+  <%= link_to t('.new_reward'), new_admin_reward_path(@test) %>
+</div>
+
+<div class="reward-group">
+  <%= render @rewards %>
+</div>

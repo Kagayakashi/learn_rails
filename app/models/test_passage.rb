@@ -5,6 +5,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
+  scope :success_completed, -> { where(finished: true, completed: true) }
+
   MINIMUM_GOOD_RESULT = 85
 
   def accept!(answer_ids)
@@ -14,7 +16,7 @@ class TestPassage < ApplicationRecord
     save!
   end
 
-  def completed?
+  def finished?
     self.current_question.nil?
   end
 

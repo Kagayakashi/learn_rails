@@ -48,6 +48,9 @@ en:
         answer:
           editing: "Answer editing"
           creating: "Answer creating"
+        reward:
+          editing: "Editing"
+          creating: "Reward creating"
       label:
         test:
           level_easy: "Easy"
@@ -111,6 +114,16 @@ en:
         confirm_delete: "Are you sure?"
       form:
         button_back: "Back"
+    rewards:
+      reward:
+        button_edit: "Edit"
+        button_delete: "Delete"
+        confirm_delete: "Are you sure?"
+      index:
+        header: "Reward list"
+        new_reward: "New reward"
+      form:
+        button_back: "Back"
   categories:
     index:
       header: "Category list"
@@ -149,8 +162,22 @@ en:
       mailer: "Mailer List"
       welcome: "Welcome"
       feedback: "Send Feedback"
+      reward_list: "Reward list"
+      my_rewards: "My rewards"
+      reward_panel: "Reward panel"
     auth:
       logout: "Logout"
   tests_mailer:
     completed_test:
       subject: "You just have completed test!"
+  rewards:
+    index:
+      header: "My rewards"
+      header_rewards: "Available rewards"
+  issued_rewards:
+    index:
+      header: "My rewards"
+  first_try: "Completed test with first try"
+  by_level: "Completed all tests with same level"
+  by_category: "Completed all tests with same category"
+  header_issued: "Issued rewards"

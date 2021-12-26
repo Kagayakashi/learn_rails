@@ -10,10 +10,12 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
 
-  has_many :test_passages, dependent: :destroy
+  has_many :test_passages, -> { success_completed }, dependent: :destroy
   has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: 'Test', foreign_key: :creator_id, dependent: :destroy
   has_many :gists, dependent: :destroy
+  has_many :issued_rewards, dependent: :destroy
+  has_many :rewards, through: :issued_rewards
 
   def admin?
     is_a?(Admin)
