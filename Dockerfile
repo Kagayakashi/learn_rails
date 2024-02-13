@@ -33,7 +33,7 @@ COPY init.sql /docker-entrypoint-initdb.d/
 #RUN bundle config build.nokogiri --use-system-libraries
 
 RUN bundle install && yarn install --check-files
-RUN bundle update
+#RUN bundle update
 
 # Копируем остальные файлы приложения
 COPY . ./
