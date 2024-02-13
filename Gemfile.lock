@@ -215,11 +215,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
-    sidekiq (6.0.7)
-      connection_pool (>= 2.2.2)
-      rack (~> 2.0)
-      rack-protection (>= 2.0.0)
-      redis (>= 4.1.0)
     spring (3.0.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -279,7 +274,6 @@ DEPENDENCIES
   ruby-debug-ide
   sass-rails (>= 6)
   selenium-webdriver
-  sidekiq (~> 6.0.0)
   spring
   turbolinks (~> 5)
   tzinfo-data

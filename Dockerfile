@@ -1,47 +1,47 @@
-FROM ruby:2.7.4-alpine
+FROM ruby:2.7.4
 
-ENV BUNDLER_VERSION=2.1.4
+# ruby-dev / ruby-devel
+RUN apt-get update -qq && apt-get install -y \
+  curl \
+  build-essential \
+  libpq-dev \
+  nodejs \
+  postgresql-client \
+  gnupg2 \
+  wget \
+  ruby-dev \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
-RUN apk add --update --no-cache \
-    binutils-gold \
-    build-base \
-    curl \
-    file \
-    g++ \
-    gcc \
-    git \
-    less \
-    libstdc++ \
-    libffi-dev \
-    libc-dev \
-    linux-headers \
-    libxml2-dev \
-    libxslt-dev \
-    libgcrypt-dev \
-    make \
-    netcat-openbsd \
-    nodejs \
-    openssl \
-    pkgconfig \
-    postgresql-dev \
-    python3 \
-    tzdata \
-    yarn
+# Yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+  && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+  && apt-get update -qq \
+  && apt-get install -y yarn \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
-RUN gem install bundler -v 2.1.4
+RUN mkdir /myapp
+WORKDIR /myapp
 
-WORKDIR /app
-
+# Копируем файлы зависимостей
 COPY Gemfile Gemfile.lock ./
-
-RUN bundle config build.nokogiri --use-system-libraries
-
-RUN bundle check || bundle install
-
 COPY package.json yarn.lock ./
+COPY init.sql /docker-entrypoint-initdb.d/
 
-RUN yarn install --check-files
+# Устанавливаем зависимости
+#RUN bundle config build.nokogiri --use-system-libraries
 
+RUN bundle install && yarn install --check-files
+RUN bundle update
+
+# Копируем остальные файлы приложения
 COPY . ./
 
-ENTRYPOINT ["./entrypoints/docker-entrypoint.sh"]
+# Указываем точку входа для контейнера
+# ENTRYPOINT ["./entrypoints/docker-entrypoint.sh"]
+# Expose port 3000 to the outside world
+EXPOSE 3000
+
+# Start the Rails server when the container starts
+CMD ["rails", "server", "-b", "0.0.0.0"]
